@@ -1,0 +1,36 @@
+template:
+  bootstrap: 5
+  bootswatch: pulse
+
+reference:
+  - title: Classification Probabilities
+    desc: ~
+    contents:
+      - '`true_classification_prob`'
+      - '`misclassification_prob`'
+  - title: Estimation
+    desc: Functions to estimate regression parameters
+    contents:
+      - '`COMMA_EM`'
+      - '`COMMA_PVW`'
+      - '`COMMA_OLS`'
+  - title: Data generation for examples
+    desc: Function to generate data with misclassified binary outcomes
+    contents:
+      - '`COMMA_data`'
+  - title: Internals
+    desc: Internal functions and helpers
+    contents:
+      - '`COMBO_EM_algorithm`'
+      - '`COMBO_EM_function`'
+      - '`COMBO_weight`'
+      - '`EM_function_bernoulliY`'
+      - '`EM_function_bernoulliY_XM`'
+      - '`EM_function_normalY`'
+      - '`EM_function_normalY_XM`'
+      - '`pi_compute`'
+      - '`pistar_compute`'
+      - '`sum_every_n`'
+      - '`sum_every_n1`'
+      - '`w_m_binaryY`'
+      - '`w_m_normalY`'
