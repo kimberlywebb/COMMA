@@ -42,4 +42,6 @@ Collate:
     'EM_function_bernoulliY.R'
     'COMMA_EM.R'
     'COMMA_PVW.R'
+    'misclassification_prob.R'
+    'true_classification_prob.R'
 LazyData: true

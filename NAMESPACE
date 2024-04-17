@@ -3,6 +3,8 @@
 export(COMMA_EM)
 export(COMMA_PVW)
 export(COMMA_data)
+export(misclassification_prob)
+export(true_classification_prob)
 importFrom(Matrix,nearPD)
 importFrom(stats,binomial)
 importFrom(stats,coefficients)
