@@ -64,10 +64,6 @@ the difference of subsequent log-likelihood estimates. The default is \code{1e-7
 \item{em_method}{A character string specifying which EM algorithm will be applied.
 Options are \code{"em"}, \code{"squarem"}, or \code{"pem"}. The default and
 recommended option is \code{"squarem"}.}
-
-\item{sigma_start}{A numeric value specifying the starting value for the
-standard deviation. This value is only required if \code{outcome_distribution}
-is \code{"Normal"}. Otherwise, this value is set to \code{NULL}.}
 }
 \value{
 \code{COMMA_PVW} returns a data frame containing four columns. The first

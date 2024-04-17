@@ -1,26 +1,26 @@
 {
-    "id": "A87866B4",
-    "path": "~/GitHub/COMMA/R/misclassification_prob.R",
-    "project_path": "R/misclassification_prob.R",
+    "id": "9F9EA26E",
+    "path": "~/GitHub/COMMA/R/EM_function_bernoulliY.R",
+    "project_path": "R/EM_function_bernoulliY.R",
     "type": "r_source",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1713389052857.0,
+    "created": 1713390928932.0,
     "source_on_save": false,
-    "relative_order": 2,
+    "relative_order": 8,
     "properties": {
         "source_window_id": "",
         "Source": "Source88tbpze86hwb",
-        "cursorPosition": "32,12",
-        "scrollLine": "0"
+        "cursorPosition": "128,2",
+        "scrollLine": "94"
     },
     "folds": "",
-    "lastKnownWriteTime": 1713388436,
+    "lastKnownWriteTime": 1713391077,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1713388436,
+    "last_content_update": 1713391077549,
     "read_only": false,
     "read_only_alternatives": []
 }

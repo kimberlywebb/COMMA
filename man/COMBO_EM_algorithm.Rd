@@ -60,7 +60,7 @@ and observation mechanisms, respectively, in a binary outcome misclassification
 model.
 }
 \examples{
-\donttest{
+\dontrun{
 set.seed(123)
 n <- 1000
 x_mu <- 0
