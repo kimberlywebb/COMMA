@@ -38,6 +38,7 @@ Collate:
     'EM_function_bernoulliY_XM.R'
     'EM_function_bernoulliY.R'
     'COMMA_EM.R'
+    'COMMA_OLS.R'
     'COMMA_PVW.R'
     'misclassification_prob.R'
     'true_classification_prob.R'
