@@ -26,7 +26,7 @@
 #'   correspond to parameters for the \code{M* = 1}
 #'   observed mediator, with the dimensions of \code{z_matrix} plus 1, and the
 #'   gamma parameter matrix columns correspond to the true mediator categories
-#'   \eqn{Y \in \{1, 2\}}. A numeric vector for \code{gamma_start} is
+#'   \eqn{M \in \{1, 2\}}. A numeric vector for \code{gamma_start} is
 #'   obtained by concatenating the gamma matrix, i.e. \code{gamma_start <- c(gamma_matrix)}.
 #' @param theta_start A numeric vector or column matrix of starting values for the \eqn{\theta}
 #'   parameters in the outcome mechanism. The number of elements in \code{theta_start}
