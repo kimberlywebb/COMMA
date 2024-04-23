@@ -208,8 +208,7 @@ COMMA_OLS <- function(Mstar, # Observed mediator vector
                                           intercept, solve_param[c(2, 1, 3), 1]),
                             Convergence = rep(COMBO_EM_results$Convergence[1],
                                               11),
-                            Sim = i,
                             Method = "OLS")
   
-  return(PVW_results)
+  return(OLS_results)
 }

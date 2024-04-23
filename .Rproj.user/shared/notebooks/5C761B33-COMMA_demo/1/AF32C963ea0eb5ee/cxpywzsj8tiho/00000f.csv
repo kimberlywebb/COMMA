@@ -1,0 +1,8 @@
+"0","# Estimate parameters using the OLS correction.
+OLS_results <- COMMA_OLS(Mstar, outcome,
+                         x_matrix, z_matrix, c_matrix,
+                         beta_start, gamma_start, theta_start)
+"
+"2","Error in COMMA_OLS(Mstar, outcome, x_matrix, z_matrix, c_matrix, beta_start,  : 
+  object 'i' not found
+"
