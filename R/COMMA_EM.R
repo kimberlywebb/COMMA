@@ -357,7 +357,8 @@ COMMA_EM <- function(Mstar, # Observed mediator vector
                             Convergence = c(rep(results$convergence,
                                                 length(c(beta_param_names,
                                                          gamma_param_names,
-                                                         theta_param_names)))))
+                                                         theta_param_names,
+                                                         "sigma")))))
     
   } else if(interaction_indicator == TRUE & outcome_distribution == "Normal"){
     
@@ -433,7 +434,8 @@ COMMA_EM <- function(Mstar, # Observed mediator vector
                             Convergence = c(rep(results$convergence,
                                                 length(c(beta_param_names,
                                                          gamma_param_names,
-                                                         theta_param_names)))))
+                                                         theta_param_names,
+                                                         "sigma")))))
     
   } else {
     "Undefined"
