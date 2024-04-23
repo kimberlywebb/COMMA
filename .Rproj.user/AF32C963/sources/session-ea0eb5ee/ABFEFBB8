@@ -3,7 +3,7 @@
     "path": "C:/Users/kimho/Dropbox/Misclassification/Code/RPackages/COMMA/COMMA_demo.Rmd",
     "project_path": null,
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "4031068522",
     "contents": "",
     "dirty": false,
     "created": 1713878879823.0,
@@ -12,16 +12,16 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "107,11",
-        "scrollLine": "99",
-        "last_setup_crc32": "ea0eb5eeac1ca5e2"
+        "cursorPosition": "243,0",
+        "scrollLine": "223",
+        "last_setup_crc32": "ea0eb5ee83d6f9b6"
     },
     "folds": "",
-    "lastKnownWriteTime": 1713878741,
+    "lastKnownWriteTime": 1713884070,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1713878955148,
+    "last_content_update": 1713884070343,
     "read_only": false,
     "read_only_alternatives": []
 }

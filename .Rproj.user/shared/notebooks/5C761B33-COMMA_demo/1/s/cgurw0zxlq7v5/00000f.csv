@@ -1,0 +1,7 @@
+"0","PVW_results <- COMMA_PVW(Mstar, outcome, interaction_indicator = TRUE,"
+"0","                         x_matrix, z_matrix, c_matrix,"
+"0","                         beta_start, gamma_start, theta_start)"
+"0",""
+"0","PVW_results$True_Value <- c(true_beta, c(true_gamma), true_theta)"
+"0","PVW_results$Estimates <- round(PVW_results$Estimates, 3)"
+"0","PVW_results"
