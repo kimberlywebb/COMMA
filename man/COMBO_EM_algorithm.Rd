@@ -34,7 +34,7 @@ parameters in the observation mechanism. In matrix form, the \code{gamma_start} 
 correspond to parameters for the \code{Y* = 1}
 observed outcome, with the dimensions of \code{z_matrix} plus 1, and the
 gamma parameter matrix columns correspond to the true outcome categories
-\eqn{Y \in \{1, 2\}}. A numeric vector for \code{gamma_start} is
+\eqn{M \in \{1, 2\}}. A numeric vector for \code{gamma_start} is
 obtained by concatenating the gamma matrix, i.e. \code{gamma_start <- c(gamma_matrix)}.}
 
 \item{tolerance}{A numeric value specifying when to stop estimation, based on

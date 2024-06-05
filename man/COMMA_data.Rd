@@ -36,7 +36,8 @@ generated from a Normal distribution.}
 \code{x} and \code{m} should be used to generate the outcome variable, \code{y}.}
 
 \item{outcome_distribution}{A character string specifying the distribution of
-the outcome variable. Options are \code{"Bernoulli"} or \code{"Normal"}.}
+the outcome variable. Options are \code{"Bernoulli"}, \code{"Normal"}, or
+\code{"Poisson"}.}
 
 \item{true_beta}{A column matrix of \eqn{\beta} parameter values (intercept, slope)
 to generate data under in the true mediator mechanism.}

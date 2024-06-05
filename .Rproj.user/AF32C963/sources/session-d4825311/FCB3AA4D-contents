@@ -1,0 +1,81 @@
+# Testing COMMA functions
+
+library(COMBO)
+
+################################################################################
+# Simulation settings
+
+sample_size <- 10000
+
+n_cat <- 2 # Number of categories in the binary mediator
+
+# Data generation settings
+x_mu <- 0
+x_sigma <- 1
+z_shape <- 1
+c_shape <- 1
+
+# True parameter values (gamma terms set the misclassification rate)
+true_beta <- matrix(c(1, -2, .5), ncol = 1)
+true_gamma <- matrix(c(1, 1, -.5, -1.5), nrow = 2, byrow = FALSE)
+true_theta <- matrix(c(1, 1.5, -2, -.2, -3), ncol = 1)
+
+################################################################################
+
+test_data <- COMMA_data(sample_size, x_mu, x_sigma, z_shape, c_shape,
+                        interaction_indicator = TRUE,
+                        outcome_distribution = "Poisson",
+                        true_beta, true_gamma, true_theta)
+
+################################################################################
+
+start_beta <- matrix(rep(1, 3), ncol = 1)
+start_gamma <- matrix(rep(1, 4), nrow = 2, ncol = 2)
+start_theta <- matrix(rep(1, 5), ncol = 1)
+
+
+Mstar = test_data[["obs_mediator"]]
+obs_mediator = Mstar
+outcome = test_data[["outcome"]]
+obs_outcome = outcome
+x_matrix = test_data[["x"]]
+z_matrix = test_data[["z"]]
+c_matrix = test_data[["c"]]
+beta_start = start_beta
+gamma_start = start_gamma
+theta_start = start_theta
+tolerance = 1e-7
+max_em_iterations = 1500
+em_method = "squarem"
+
+param_current <- c(c(beta_start), c(gamma_start), c(theta_start))
+
+
+n_cat = 2 # Number of categories in mediator
+sample_size = length(Mstar) # Sample size
+
+# Create design matrices
+X = matrix(c(rep(1, sample_size), c(x_matrix)),
+           byrow = FALSE, nrow = sample_size)
+Z = matrix(c(rep(1, sample_size), c(z_matrix)),
+           byrow = FALSE, nrow = sample_size)
+
+# Create a matrix of observed mediator variables using dummy coding
+obs_M_reps = matrix(rep(Mstar, n_cat), nrow = sample_size, byrow = FALSE)
+category_matrix = matrix(rep(1:n_cat, each = sample_size), nrow = sample_size,
+                         byrow = FALSE)
+obs_M_matrix = 1 * (obs_M_reps == category_matrix)
+
+# EM algorithm settings
+control_settings = list(convtype = "parameter", tol = tolerance,
+                        stoptype = "maxiter", maxiter = max_em_iterations)
+
+test_EM <- COMMA_EM(Mstar, outcome, "Poisson", TRUE,
+                    x_matrix, z_matrix, c_matrix,
+                    beta_start, gamma_start, theta_start,
+                    max_em_iterations = 10)
+
+test_PVW <- COMMA_PVW(Mstar, outcome, "Poisson", TRUE,
+                      x_matrix, z_matrix, c_matrix,
+                      beta_start, gamma_start, theta_start,
+                      max_em_iterations = 10)
