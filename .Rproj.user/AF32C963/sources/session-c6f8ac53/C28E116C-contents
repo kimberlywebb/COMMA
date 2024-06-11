@@ -12,7 +12,7 @@
 #' @param outcome A vector containing the outcome variables of interest. There
 #'   should be no \code{NA} terms.
 #' @param outcome_distribution A character string specifying the distribution of 
-#'   the outcome variable. Options are \code{"Bernoulli"}, \code{"Normal"}, or
+#'   the outcome variable. Options are \code{"Bernoulli"} or
 #'   \code{"Poisson"}.
 #' @param interaction_indicator A logical value indicating if an interaction between
 #'   \code{x} and \code{m} should be used to generate the outcome variable, \code{y}.

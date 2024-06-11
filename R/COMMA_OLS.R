@@ -174,7 +174,7 @@ COMMA_OLS <- function(Mstar, # Observed mediator vector
   m_matrix <- matrix(ifelse(Mstar == 1, 1, 0), ncol = 1)
   sd_dd <- cov(m_matrix)
   
-  predictor_matrix <- matrix(c(x_matrix, c_matrix), ncol = 2, byrow = FALSE)
+  predictor_matrix <- matrix(c(x_matrix, c_matrix), nrow = sample_size, byrow = FALSE)
   sd_xx <- cov(predictor_matrix)
   
   sd_xd <- cov(predictor_matrix, m_matrix)
@@ -184,6 +184,7 @@ COMMA_OLS <- function(Mstar, # Observed mediator vector
   sd_yd <- cov(y_matrix, m_matrix)
   sd_yx <- cov(y_matrix, predictor_matrix)
   
+  # Fix this to allow for general dimensions of c!
   block1_dd <- (1 - median(squiggle_Nguimkeu)) * sd_dd[1,1]
   block1_xd <- (1 + median(theta_Nguimkeu)) * sd_xd
   block_1_matrix <- matrix(c(block1_dd, block1_xd[,1],
@@ -203,6 +204,7 @@ COMMA_OLS <- function(Mstar, # Observed mediator vector
     t(colMeans(predictor_matrix) %*% solve_param[-1,])
   
   # Intercept not estimated in "solve_param".
+  ## Fix this to allow for flexible parameter dimensions! 
   OLS_results <- data.frame(Parameter = EM_results$Parameter[1:11], 
                             Estimates = c(c(predicted_beta), c(predicted_gamma),
                                           intercept, solve_param[c(2, 1, 3), 1]),
