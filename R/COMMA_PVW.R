@@ -170,7 +170,7 @@ COMMA_PVW <- function(Mstar, # Observed mediator vector
                                  y = outcome,
                                  mstar_01 = ifelse(Mstar == 1, 1, 0))
   
-  # Fit spline model for observed mediator based on x, c, y, z
+  # Fit model for observed mediator based on x, c, y, z (with interactions)
   mstar_model <- glm(mstar_01 ~ . ^2,
                      data = mstar_model_data, family = "binomial")
   
