@@ -13,7 +13,7 @@ observation mechanism, \code{M* | M} (observed mediator, given the true mediator
 correspond to parameters for the \code{M* = 1} observed mediator, with the
 dimensions of \code{z_matrix}. Columns of the matrix correspond to the true
 mediator categories \eqn{j = 1, \dots,} \code{n_cat}. The matrix should be
-obtained by \code{COMMA_EM} or \code{COMMA_PVW}.}
+obtained by \code{COMMA_EM}, \code{COMMA_PVW}, or \code{COMMA_OLS}.}
 
 \item{z_matrix}{A numeric matrix of covariates in the observation mechanism.
 \code{z_matrix} should not contain an intercept.}

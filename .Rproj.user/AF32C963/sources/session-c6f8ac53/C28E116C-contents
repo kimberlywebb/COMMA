@@ -91,9 +91,9 @@
 #' z_matrix = example_data[["z"]]
 #' c_matrix = example_data[["c"]]
 #'                            
-#' EM_results <- COMMA_PVW(Mstar, outcome, FALSE, 
-#'                         x_matrix, z_matrix, c_matrix,
-#'                         beta_start, gamma_start, theta_start)
+#' PVW_results <- COMMA_PVW(Mstar, outcome, FALSE, 
+#'                          x_matrix, z_matrix, c_matrix,
+#'                          beta_start, gamma_start, theta_start)
 #'}
 #' 
 COMMA_PVW <- function(Mstar, # Observed mediator vector

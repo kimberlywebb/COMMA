@@ -9,7 +9,7 @@ true_classification_prob(beta_matrix, x_matrix)
 \arguments{
 \item{beta_matrix}{A numeric column matrix of estimated regression parameters for the
 true mediator mechanism, \code{M} (true mediator) ~ \code{X} (predictor matrix of interest),
-obtained from \code{COMMA_EM} or \code{COMMA_PVW}.}
+obtained from \code{COMMA_EM}, \code{COMMA_PVW}, or \code{COMMA_OLS}.}
 
 \item{x_matrix}{A numeric matrix of covariates in the true mediator mechanism.
 \code{x_matrix} should not contain an intercept.}

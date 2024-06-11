@@ -86,9 +86,9 @@
 #' z_matrix = example_data[["z"]]
 #' c_matrix = example_data[["c"]]
 #'                            
-#' EM_results <- COMMA_PVW(Mstar, outcome, FALSE, 
-#'                         x_matrix, z_matrix, c_matrix,
-#'                         beta_start, gamma_start, theta_start)
+#' OLS_results <- COMMA_OLS(Mstar, outcome, FALSE, 
+#'                          x_matrix, z_matrix, c_matrix,
+#'                          beta_start, gamma_start, theta_start)
 #'}
 #' 
 COMMA_OLS <- function(Mstar, # Observed mediator vector
@@ -184,13 +184,16 @@ COMMA_OLS <- function(Mstar, # Observed mediator vector
   sd_yd <- cov(y_matrix, m_matrix)
   sd_yx <- cov(y_matrix, predictor_matrix)
   
-  # Fix this to allow for general dimensions of c!
+  n_theta <- length(theta_start)
   block1_dd <- (1 - median(squiggle_Nguimkeu)) * sd_dd[1,1]
   block1_xd <- (1 + median(theta_Nguimkeu)) * sd_xd
-  block_1_matrix <- matrix(c(block1_dd, block1_xd[,1],
-                             sd_dx[,1], sd_xx[,1],
-                             sd_dx[,2], sd_xx[,2]), byrow = FALSE,
-                           nrow = 3)
+  
+  block_1_matrix <- matrix(rep(NA, (n_theta - 1)^2),
+                           nrow = n_theta - 1, ncol = n_theta - 1)
+  block_1_matrix[,1] <- c(block1_dd, block1_xd)
+  for(i in 2:(n_theta - 1)){
+    block_1_matrix[,i] <- c(sd_dx[,i - 1], sd_xx[,i - 1])
+  }
   
   block_2_matrix <- matrix(c(sd_yd, sd_yx[1,]), ncol = 1)
   
@@ -205,11 +208,13 @@ COMMA_OLS <- function(Mstar, # Observed mediator vector
   
   # Intercept not estimated in "solve_param".
   ## Fix this to allow for flexible parameter dimensions! 
-  OLS_results <- data.frame(Parameter = EM_results$Parameter[1:11], 
+  OLS_results <- data.frame(Parameter = c(COMBO_EM_results$Parameter,
+                                          "theta0", "theta_m", "theta_x",
+                                          paste0("theta_c", 1:ncol(c_matrix))),
                             Estimates = c(c(predicted_beta), c(predicted_gamma),
-                                          intercept, solve_param[c(2, 1, 3), 1]),
+                                          intercept, solve_param[, 1]),
                             Convergence = rep(COMBO_EM_results$Convergence[1],
-                                              11),
+                                              n_param),
                             Method = "OLS")
   
   return(OLS_results)

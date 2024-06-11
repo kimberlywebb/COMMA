@@ -28,7 +28,7 @@ mediator \code{M*}. There should be no \code{NA} terms. The reference category i
 should be no \code{NA} terms.}
 
 \item{outcome_distribution}{A character string specifying the distribution of
-the outcome variable. Options are \code{"Bernoulli"}, \code{"Normal"}, or
+the outcome variable. Options are \code{"Bernoulli"} or
 \code{"Poisson"}.}
 
 \item{interaction_indicator}{A logical value indicating if an interaction between
