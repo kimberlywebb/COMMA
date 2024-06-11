@@ -1,26 +1,26 @@
 {
-    "id": "FCB3AA4D",
-    "path": "C:/Users/kimho/Dropbox/Misclassification/Code/RPackages/COMMA_test_script.R",
-    "project_path": null,
+    "id": "3275BD25",
+    "path": "~/GitHub/COMMA/R/w_m_binaryY.R",
+    "project_path": "R/w_m_binaryY.R",
     "type": "r_source",
-    "hash": "2041857654",
+    "hash": "439659979",
     "contents": "",
     "dirty": false,
-    "created": 1714150612798.0,
+    "created": 1717613080886.0,
     "source_on_save": false,
     "relative_order": 10,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "73,49",
-        "scrollLine": "29"
+        "cursorPosition": "0,93",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1717614581,
+    "lastKnownWriteTime": 1713397722,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1717614581276,
+    "last_content_update": 1713397722,
     "read_only": false,
     "read_only_alternatives": []
 }

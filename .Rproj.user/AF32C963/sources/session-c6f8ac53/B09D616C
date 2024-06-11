@@ -3,17 +3,17 @@
     "path": "~/GitHub/COMMA/R/EM_function_bernoulliY_XM.R",
     "project_path": "R/EM_function_bernoulliY_XM.R",
     "type": "r_source",
-    "hash": "1824116167",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1717612767820.0,
     "source_on_save": false,
-    "relative_order": 5,
+    "relative_order": 7,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "29,24",
-        "scrollLine": "0"
+        "cursorPosition": "153,35",
+        "scrollLine": "124"
     },
     "folds": "",
     "lastKnownWriteTime": 1713391097,
