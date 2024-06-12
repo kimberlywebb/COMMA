@@ -148,7 +148,7 @@ EM_function_normalY_XM <- function(param_current,
   } else {
     
     theta_sigma_new_optim <- optim(par = c(theta_current, sigma_current),
-                                   fn = theta_optim_XM,
+                                   fn = COMMA:::theta_optim_XM,
                                    m = weights[,1],
                                    x = X[,2], c_matrix = c_matrix,
                                    outcome = obs_outcome,

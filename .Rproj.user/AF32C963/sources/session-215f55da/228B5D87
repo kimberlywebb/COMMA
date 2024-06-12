@@ -1,26 +1,26 @@
 {
-    "id": "DDF0266B",
-    "path": "~/GitHub/COMMA/R/COMMA_data.R",
-    "project_path": "R/COMMA_data.R",
+    "id": "228B5D87",
+    "path": "~/GitHub/COMMA/R/w_m_normalY.R",
+    "project_path": "R/w_m_normalY.R",
     "type": "r_source",
-    "hash": "0",
+    "hash": "550141534",
     "contents": "",
-    "dirty": true,
-    "created": 1718139656785.0,
+    "dirty": false,
+    "created": 1718224830062.0,
     "source_on_save": false,
     "relative_order": 12,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "251,2",
-        "scrollLine": "226"
+        "cursorPosition": "68,0",
+        "scrollLine": "39"
     },
     "folds": "",
-    "lastKnownWriteTime": 1718209426,
+    "lastKnownWriteTime": 1713397761,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1718224644818,
+    "last_content_update": 1713397761,
     "read_only": false,
     "read_only_alternatives": []
 }

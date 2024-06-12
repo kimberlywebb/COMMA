@@ -28,8 +28,8 @@
 #'
 #' @return \code{theta_optim} returns a numeric value of the (negative) log-likelihood function.
 #'
-theta_optim <- function(param_start, m, x, c_matrix, outcome,
-                        sample_size, n_cat){
+theta_optim_XM <- function(param_start, m, x, c_matrix, outcome,
+                           sample_size, n_cat){
   
   theta_v <- param_start[1:(length(param_start) - 1)]
   sigma_v <- param_start[length(param_start)]
