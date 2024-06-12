@@ -48,8 +48,10 @@ In matrix form, the \code{gamma} matrix rows correspond to intercept (row 1)
 and slope (row 2) terms. The gamma parameter matrix columns correspond to the true mediator categories
 \eqn{M \in \{1, 2\}}.}
 
-\item{true_theta}{A column matrix of \eqn{\theta} parameter values (intercept, slope)
-to generate data in outcome mechanism.}
+\item{true_theta}{A column matrix of \eqn{\theta} parameter values (intercept, slope
+coefficient for \code{x}, slope coefficient for \code{m}, slope coefficient for \code{c}),
+and, optionally, slope coefficient for \code{xm} if using) to generate data
+in the outcome mechanism.}
 }
 \value{
 \code{COMMA_data} returns a list of generated data elements:

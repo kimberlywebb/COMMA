@@ -46,7 +46,10 @@ the outcome variable. Options are \code{"Bernoulli"}, \code{"Normal"}, or
 
 \item{beta_start}{A numeric vector or column matrix of starting values for the \eqn{\beta}
 parameters in the true mediator mechanism. The number of elements in \code{beta_start}
-should be equal to the number of columns of \code{x_matrix} and \code{c_matrix} plus 1.}
+should be equal to the number of columns of \code{x_matrix} and \code{c_matrix} plus 1.
+Starting values should be provided in the following order: intercept, slope
+coefficient for the \code{x_matrix} term, slope coefficient for first column
+of the \code{c_matrix}, ..., slope coefficient for the final column of the \code{c_matrix}.}
 
 \item{gamma_start}{A numeric vector or matrix of starting values for the \eqn{\gamma}
 parameters in the observation mechanism. In matrix form, the \code{gamma_start} matrix rows
@@ -54,12 +57,21 @@ correspond to parameters for the \code{M* = 1}
 observed mediator, with the dimensions of \code{z_matrix} plus 1, and the
 gamma parameter matrix columns correspond to the true mediator categories
 \eqn{M \in \{1, 2\}}. A numeric vector for \code{gamma_start} is
-obtained by concatenating the gamma matrix, i.e. \code{gamma_start <- c(gamma_matrix)}.}
+obtained by concatenating the gamma matrix, i.e. \code{gamma_start <- c(gamma_matrix)}.
+Starting values should be provided in the following order within each column:
+intercept, slope coefficient for first column of the \code{z_matrix}, ...,
+slope coefficient for the final column of the \code{z_matrix}.}
 
 \item{theta_start}{A numeric vector or column matrix of starting values for the \eqn{\theta}
 parameters in the outcome mechanism. The number of elements in \code{theta_start}
 should be equal to the number of columns of \code{x_matrix} and \code{c_matrix} plus 2
-(if \code{interaction_indicator} is \code{FALSE}) or 3 (if \code{interaction_indicator} is \code{TRUE}).}
+(if \code{interaction_indicator} is \code{FALSE}) or 3 (if
+\code{interaction_indicator} is \code{TRUE}). Starting values should be
+provided in the following order: intercept, slope coefficient for the \code{x_matrix} term,
+slope coefficient for the mediator \code{m} term,
+slope coefficient for first column of the \code{c_matrix}, ...,
+slope coefficient for the final column of the \code{c_matrix},
+and, optionally, slope coefficient for \code{xm}).}
 
 \item{sigma_start}{A numeric value specifying the starting value for the
 standard deviation. This value is only required if \code{outcome_distribution}
