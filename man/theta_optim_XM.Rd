@@ -2,7 +2,7 @@
 % Please edit documentation in R/theta_optim_XM.R
 \name{theta_optim_XM}
 \alias{theta_optim_XM}
-\title{Likelihood Function for Normal Outcome Mechanism with a Binary Mediator, with an Interaction Term}
+\title{Likelihood Function for Normal Outcome Mechanism with a Binary Mediator and an Interaction Term}
 \usage{
 theta_optim_XM(param_start, m, x, c_matrix, outcome, sample_size, n_cat)
 }
@@ -20,7 +20,7 @@ slope coefficient for the final column of the \code{c_matrix},
 and, optionally, slope coefficient for \code{xm}). The final entry should be
 the starting value for \eqn{\sigma}.}
 
-\item{m}{A vector or column matrix containing the true binary mediator or the
+\item{m}{vector or column matrix containing the true binary mediator or the
 E-step weight (with values between 0 and 1). There
 should be no \code{NA} terms.}
 
@@ -43,5 +43,5 @@ and the observed outcome, \code{M*} can take.}
 \code{theta_optim_XM} returns a numeric value of the (negative) log-likelihood function.
 }
 \description{
-Likelihood Function for Normal Outcome Mechanism with a Binary Mediator, with an Interaction Term
+Likelihood Function for Normal Outcome Mechanism with a Binary Mediator and an Interaction Term
 }

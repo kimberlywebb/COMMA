@@ -1,4 +1,4 @@
-#' Likelihood Function for Normal Outcome Mechanism with a Binary Mediator, with an Interaction Term
+#' Likelihood Function for Normal Outcome Mechanism with a Binary Mediator and an Interaction Term
 #'
 #' @param param_start A numeric vector or column matrix of starting values for the \eqn{\theta}
 #'   parameters in the outcome mechanism and \eqn{\sigma} parameter.
@@ -12,8 +12,8 @@
 #'   slope coefficient for the final column of the \code{c_matrix},
 #'   and, optionally, slope coefficient for \code{xm}). The final entry should be
 #'   the starting value for \eqn{\sigma}.
-#' @param m A vector or column matrix containing the true binary mediator or the
-#' E-step weight (with values between 0 and 1). There
+#' @param m  vector or column matrix containing the true binary mediator or the
+#'   E-step weight (with values between 0 and 1). There
 #'   should be no \code{NA} terms.
 #' @param x A vector or column matrix of the predictor or exposure of interest. There
 #'   should be no \code{NA} terms.

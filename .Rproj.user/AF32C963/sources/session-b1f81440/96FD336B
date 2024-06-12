@@ -1,26 +1,26 @@
 {
-    "id": "E7757398",
-    "path": "~/GitHub/COMMA/R/EM_function_bernoulliY.R",
-    "project_path": "R/EM_function_bernoulliY.R",
+    "id": "96FD336B",
+    "path": "~/GitHub/COMMA/R/theta_optim.R",
+    "project_path": "R/theta_optim.R",
     "type": "r_source",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1718135368007.0,
+    "created": 1718222928476.0,
     "source_on_save": false,
-    "relative_order": 8,
+    "relative_order": 11,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "68,51",
-        "scrollLine": "0"
+        "cursorPosition": "31,44",
+        "scrollLine": "12"
     },
     "folds": "",
-    "lastKnownWriteTime": 1713391077,
+    "lastKnownWriteTime": 1718228064,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1713391077,
+    "last_content_update": 1718228064965,
     "read_only": false,
     "read_only_alternatives": []
 }

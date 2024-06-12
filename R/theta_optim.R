@@ -13,7 +13,7 @@
 #'   and, optionally, slope coefficient for \code{xm}). The final entry should be
 #'   the starting value for \eqn{\sigma}.
 #' @param m A vector or column matrix containing the true binary mediator or the
-#' E-step weight (with values between 0 and 1). There
+#'   E-step weight (with values between 0 and 1). There
 #'   should be no \code{NA} terms.
 #' @param x A vector or column matrix of the predictor or exposure of interest. There
 #'   should be no \code{NA} terms.
