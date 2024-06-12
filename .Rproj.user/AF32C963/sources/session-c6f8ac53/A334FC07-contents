@@ -147,7 +147,7 @@ EM_function_normalY <- function(param_current,
     theta_sigma_new_optim <- optim(par = c(theta_current, sigma_current),
                                    fn = theta_optim,
                                    m = weights[,1],
-                                   x = X[,2], c = c_matrix,
+                                   x = X[,2], c_matrix = c_matrix,
                                    outcome = obs_outcome,
                                    sample_size = sample_size,
                                    n_cat = 2, method = "BFGS")
