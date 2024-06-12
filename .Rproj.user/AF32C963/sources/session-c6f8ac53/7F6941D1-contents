@@ -43,6 +43,7 @@ Collate:
     'EM_function_poissonY.R'
     'EM_function_poissonY_XM.R'
     'misclassification_prob.R'
+    'theta_optim.R'
     'true_classification_prob.R'
     'w_m_poissonY.R'
 LazyData: true

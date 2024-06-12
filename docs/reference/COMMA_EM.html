@@ -114,7 +114,10 @@ the outcome variable. Options are <code>"Bernoulli"</code>, <code>"Normal"</code
 <dt>beta_start</dt>
 <dd><p>A numeric vector or column matrix of starting values for the \(\beta\)
 parameters in the true mediator mechanism. The number of elements in <code>beta_start</code>
-should be equal to the number of columns of <code>x_matrix</code> and <code>c_matrix</code> plus 1.</p></dd>
+should be equal to the number of columns of <code>x_matrix</code> and <code>c_matrix</code> plus 1.
+Starting values should be provided in the following order: intercept, slope
+coefficient for the <code>x_matrix</code> term, slope coefficient for first column
+of the <code>c_matrix</code>, ..., slope coefficient for the final column of the <code>c_matrix</code>.</p></dd>
 
 
 <dt>gamma_start</dt>
@@ -124,14 +127,23 @@ correspond to parameters for the <code>M* = 1</code>
 observed mediator, with the dimensions of <code>z_matrix</code> plus 1, and the
 gamma parameter matrix columns correspond to the true mediator categories
 \(M \in \{1, 2\}\). A numeric vector for <code>gamma_start</code> is
-obtained by concatenating the gamma matrix, i.e. <code>gamma_start &lt;- c(gamma_matrix)</code>.</p></dd>
+obtained by concatenating the gamma matrix, i.e. <code>gamma_start &lt;- c(gamma_matrix)</code>.
+Starting values should be provided in the following order within each column:
+intercept, slope coefficient for first column of the <code>z_matrix</code>, ...,
+slope coefficient for the final column of the <code>z_matrix</code>.</p></dd>
 
 
 <dt>theta_start</dt>
 <dd><p>A numeric vector or column matrix of starting values for the \(\theta\)
 parameters in the outcome mechanism. The number of elements in <code>theta_start</code>
 should be equal to the number of columns of <code>x_matrix</code> and <code>c_matrix</code> plus 2
-(if <code>interaction_indicator</code> is <code>FALSE</code>) or 3 (if <code>interaction_indicator</code> is <code>TRUE</code>).</p></dd>
+(if <code>interaction_indicator</code> is <code>FALSE</code>) or 3 (if
+<code>interaction_indicator</code> is <code>TRUE</code>). Starting values should be
+provided in the following order: intercept, slope coefficient for the <code>x_matrix</code> term,
+slope coefficient for the mediator <code>m</code> term,
+slope coefficient for first column of the <code>c_matrix</code>, ...,
+slope coefficient for the final column of the <code>c_matrix</code>,
+and, optionally, slope coefficient for <code>xm</code>).</p></dd>
 
 
 <dt>sigma_start</dt>
