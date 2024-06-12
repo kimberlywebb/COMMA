@@ -40,7 +40,7 @@ This value should be equal to the number of rows of the design matrix, \code{X} 
 and the observed outcome, \code{M*} can take.}
 }
 \value{
-\code{theta_optim} returns a numeric value of the (negative) log-likelihood function.
+\code{theta_optim_XM} returns a numeric value of the (negative) log-likelihood function.
 }
 \description{
 Likelihood Function for Normal Outcome Mechanism with a Binary Mediator, with an Interaction Term

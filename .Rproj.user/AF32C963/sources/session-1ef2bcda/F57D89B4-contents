@@ -26,7 +26,7 @@
 #' @param n_cat The number of categorical values that the true outcome, \code{M},
 #'   and the observed outcome, \code{M*} can take.
 #'
-#' @return \code{theta_optim} returns a numeric value of the (negative) log-likelihood function.
+#' @return \code{theta_optim_XM} returns a numeric value of the (negative) log-likelihood function.
 #'
 theta_optim_XM <- function(param_start, m, x, c_matrix, outcome,
                            sample_size, n_cat){
