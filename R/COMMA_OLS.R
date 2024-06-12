@@ -219,7 +219,10 @@ COMMA_OLS <- function(Mstar, # Observed mediator vector
   ## Fix this to allow for flexible parameter dimensions! 
   OLS_results <- data.frame(Parameter = c(COMBO_EM_results$Parameter,
                                           "theta0", "theta_m", "theta_x",
-                                          paste0("theta_c", 1:ncol(c_matrix))),
+                                          paste0("theta_c",
+                                                 1:ncol(matrix(c(c_matrix),
+                                                               nrow = sample_size,
+                                                               byrow = FALSE)))),
                             Estimates = c(c(predicted_beta), c(predicted_gamma),
                                           intercept, solve_param[, 1]),
                             Convergence = rep(COMBO_EM_results$Convergence[1],

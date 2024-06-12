@@ -2,7 +2,5 @@
 "0","OLS_results <- COMMA_OLS(Mstar, outcome,"
 "0","                         x_matrix, z_matrix, c_matrix,"
 "0","                         beta_start, gamma_start, theta_start)"
-"0",""
-"0","OLS_results$True_Value <- c(true_beta, c(true_gamma), true_theta)"
-"0","OLS_results$Estimates <- round(OLS_results$Estimates, 3)"
-"0","OLS_results"
+"2","Error in 1:ncol(c_matrix) : argument of length 0
+"
