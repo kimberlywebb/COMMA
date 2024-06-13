@@ -1,26 +1,26 @@
 {
-    "id": "96FD336B",
-    "path": "~/GitHub/COMMA/R/theta_optim.R",
-    "project_path": "R/theta_optim.R",
+    "id": "7A5B383B",
+    "path": "~/GitHub/COMMA/R/EM_function_normalY_XM.R",
+    "project_path": "R/EM_function_normalY_XM.R",
     "type": "r_source",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1718222928476.0,
+    "created": 1718222845876.0,
     "source_on_save": false,
-    "relative_order": 11,
+    "relative_order": 4,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "31,44",
-        "scrollLine": "12"
+        "cursorPosition": "57,2",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1718228064,
+    "lastKnownWriteTime": 1718226441,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1718228064965,
+    "last_content_update": 1718226441053,
     "read_only": false,
     "read_only_alternatives": []
 }
