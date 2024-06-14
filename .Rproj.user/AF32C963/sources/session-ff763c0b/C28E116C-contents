@@ -12,8 +12,8 @@
 #' @param outcome A vector containing the outcome variables of interest. There
 #'   should be no \code{NA} terms.
 #' @param outcome_distribution A character string specifying the distribution of 
-#'   the outcome variable. Options are \code{"Bernoulli"} or
-#'   \code{"Poisson"}.
+#'   the outcome variable. Options are \code{"Bernoulli"},
+#'   \code{"Poisson"}, or \code{"Normal"}.
 #' @param interaction_indicator A logical value indicating if an interaction between
 #'   \code{x} and \code{m} should be used to generate the outcome variable, \code{y}.
 #' @param x_matrix A numeric matrix of predictors in the true mediator and outcome mechanisms.
@@ -399,6 +399,118 @@ COMMA_PVW <- function(Mstar, # Observed mediator vector
     weighted_outcome_model <- glm(y ~ . -y -w -w_no_negative, weights = w_no_negative,
                                   data = doubled_data_2,
                                   family = "poisson"(link = "log"))
+    summary(weighted_outcome_model)
+    
+    #  Save results
+    beta_param_names <- paste0(rep("beta_", ncol(X_design)), 1:ncol(X_design))
+    gamma_param_names <- paste0(rep("gamma", (n_cat * ncol(Z))),
+                                rep(1:ncol(Z), n_cat),
+                                rep(1:n_cat, each = ncol(Z)))
+    theta_param_names <- c("theta_0",
+                           paste0(rep("theta_x", ncol(x_mat)), 1:ncol(x_mat)),
+                           "theta_m",
+                           paste0(rep("theta_c", ncol(c_mat)), 1:ncol(c_mat)),
+                           "theta_xm")
+    
+    
+    PVW_results <- data.frame(Parameter = c(beta_param_names,
+                                            gamma_param_names,
+                                            theta_param_names),
+                              Estimates = c(c(predicted_beta),
+                                            c(predicted_gamma),
+                                            c(unname(coefficients(weighted_outcome_model)))),
+                              Convergence = rep(COMBO_EM_results$Convergence[1],
+                                                n_param),
+                              Method = "PVW")
+    
+  } else if(interaction_indicator == FALSE & outcome_distribution == "Normal"){
+    
+    # Duplicate the dataset
+    actual_dataset <- data.frame(x = x_matrix, m = 0, c = c_matrix, 
+                                 y = outcome,
+                                 mstar_01 = mstar_model_data$mstar_01)
+    
+    duplicate_dataset <- data.frame(x = x_matrix, m = 1, c = c_matrix,
+                                    y = outcome,
+                                    mstar_01 = mstar_model_data$mstar_01)
+    
+    doubled_data <- rbind(actual_dataset, duplicate_dataset)
+    
+    # Apply NPV and PPV weights
+    doubled_data$w <- 0
+    doubled_data$w[doubled_data$m == 1 & doubled_data$mstar_01 == 1] <- ppv[which(doubled_data$m == 1 & doubled_data$mstar_01 == 1) - sample_size]
+    doubled_data$w[doubled_data$m == 0 & doubled_data$mstar_01 == 1] <- 1 - ppv[doubled_data$m == 0 & doubled_data$mstar_01 == 1]
+    doubled_data$w[doubled_data$m == 1 & doubled_data$mstar_01 == 0] <- 1 - npv[which(doubled_data$m == 1 & doubled_data$mstar_01 == 0) - sample_size]
+    doubled_data$w[doubled_data$m == 0 & doubled_data$mstar_01 == 0] <- npv[doubled_data$m == 0 & doubled_data$mstar_01 == 0]
+    
+    # Remove mstar term from dataset before modeling.
+    doubled_data_2 <- doubled_data[,-(ncol(doubled_data) - 1)]
+    
+    # Remove negative weights (why are these happening?)
+    doubled_data_2$w_no_negative <- ifelse(doubled_data_2$w < 0, 0, doubled_data_2$w)
+    
+    # Fit weighted regression to estimate theta
+    weighted_outcome_model <- lm(y ~ . -y -w -w_no_negative, weights = w_no_negative,
+                                 data = doubled_data_2)
+    summary(weighted_outcome_model)
+    
+    
+    #  Save results
+    beta_param_names <- paste0(rep("beta_", ncol(X_design)), 1:ncol(X_design))
+    gamma_param_names <- paste0(rep("gamma", (n_cat * ncol(Z))),
+                                rep(1:ncol(Z), n_cat),
+                                rep(1:n_cat, each = ncol(Z)))
+    theta_param_names <- c("theta_0",
+                           paste0(rep("theta_x", ncol(x_mat)), 1:ncol(x_mat)),
+                           "theta_m",
+                           paste0(rep("theta_c", ncol(c_mat)), 1:ncol(c_mat)))
+    
+    
+    PVW_results <- data.frame(Parameter = c(beta_param_names,
+                                            gamma_param_names,
+                                            theta_param_names),
+                              Estimates = c(c(predicted_beta),
+                                            c(predicted_gamma),
+                                            c(unname(coefficients(weighted_outcome_model)))),
+                              Convergence = rep(COMBO_EM_results$Convergence[1],
+                                                n_param),
+                              Method = "PVW")
+    
+  } else if(interaction_indicator == TRUE & outcome_distribution == "Normal"){
+    
+    # Duplicate the dataset
+    interaction_m0 = x_matrix * 0
+    actual_dataset <- data.frame(x = x_matrix, m = 0, c = c_matrix,
+                                 xm = interaction_m0,
+                                 y = outcome,
+                                 mstar_01 = mstar_model_data$mstar_01)
+    
+    interaction_m1 = x_matrix * 1
+    duplicate_dataset <- data.frame(x = x_matrix, m = 1, c = c_matrix,
+                                    xm = interaction_m1,
+                                    y = outcome,
+                                    mstar_01 = mstar_model_data$mstar_01)
+    
+    doubled_data <- rbind(actual_dataset, duplicate_dataset)
+    
+    # Apply NPV and PPV weights
+    doubled_data$w <- 0
+    doubled_data$w[doubled_data$m == 1 & doubled_data$mstar_01 == 1] <- ppv[which(doubled_data$m == 1 & doubled_data$mstar_01 == 1) - sample_size]
+    doubled_data$w[doubled_data$m == 0 & doubled_data$mstar_01 == 1] <- 1 - ppv[doubled_data$m == 0 & doubled_data$mstar_01 == 1]
+    doubled_data$w[doubled_data$m == 1 & doubled_data$mstar_01 == 0] <- 1 - npv[which(doubled_data$m == 1 & doubled_data$mstar_01 == 0) - sample_size]
+    doubled_data$w[doubled_data$m == 0 & doubled_data$mstar_01 == 0] <- npv[doubled_data$m == 0 & doubled_data$mstar_01 == 0]
+    
+    # Remove mstar term from dataset before modeling.
+    doubled_data_2 <- doubled_data[,-(ncol(doubled_data) - 1)]
+    
+    w <- doubled_data_2$w
+    
+    # Remove negative weights (why are these happening?)
+    doubled_data_2$w_no_negative <- ifelse(doubled_data_2$w < 0, 0, doubled_data_2$w)
+    
+    # Fit weighted regression to estimate theta
+    weighted_outcome_model <- lm(y ~ . -y -w -w_no_negative, weights = w_no_negative,
+                                  data = doubled_data_2)
     summary(weighted_outcome_model)
     
     #  Save results
