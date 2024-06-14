@@ -1,8 +1,8 @@
 pandoc: 3.1.1
-pkgdown: 2.0.7
+pkgdown: 2.0.9
 pkgdown_sha: ~
 articles:
   COMMA_demo: COMMA_demo.html
   COMMA_Notation_Guide: COMMA_Notation_Guide.html
-last_built: 2024-06-12T21:08Z
+last_built: 2024-06-14T18:33Z
 

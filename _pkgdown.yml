@@ -35,6 +35,7 @@ reference:
       - '`sum_every_n`'
       - '`sum_every_n1`'
       - '`theta_optim`'
+      - '`theta_optim_XM`'
       - '`w_m_binaryY`'
       - '`w_m_normalY`'
       - '`w_m_poissonY`'
