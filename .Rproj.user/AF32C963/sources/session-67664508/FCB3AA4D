@@ -1,26 +1,26 @@
 {
-    "id": "82D6E0AC",
-    "path": "C:/Users/kimho/Dropbox/Misclassification/Writing/misclassified_mediation/cornell_stats_poster/PVWsplines_NormalY_largeN_sim_s3.R",
+    "id": "FCB3AA4D",
+    "path": "C:/Users/kimho/Dropbox/Misclassification/Code/RPackages/COMMA_test_script.R",
     "project_path": null,
     "type": "r_source",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1718394091438.0,
+    "created": 1714150612798.0,
     "source_on_save": false,
-    "relative_order": 3,
+    "relative_order": 7,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "315,2",
-        "scrollLine": "281"
+        "cursorPosition": "9,56",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1692978677,
+    "lastKnownWriteTime": 1718224702,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1692978677,
+    "last_content_update": 1718224702997,
     "read_only": false,
     "read_only_alternatives": []
 }

@@ -85,7 +85,8 @@ in a binary mediator misclassification model using an ordinary least squares
 correction.
 }
 \details{
-Note that this method can only be used for Normal outcome models.
+Note that this method can only be used for Normal outcome models, and interaction
+terms (between \code{x} and \code{m}) are not supported.
 }
 \examples{
 \dontrun{

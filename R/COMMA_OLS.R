@@ -5,7 +5,8 @@
 #' in a binary mediator misclassification model using an ordinary least squares
 #' correction.
 #' 
-#' Note that this method can only be used for Normal outcome models.
+#' Note that this method can only be used for Normal outcome models, and interaction
+#' terms (between \code{x} and \code{m}) are not supported.
 #'
 #' @param Mstar A numeric vector of indicator variables (1, 2) for the observed
 #'   mediator \code{M*}. There should be no \code{NA} terms. The reference category is 2.
