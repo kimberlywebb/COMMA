@@ -3,3 +3,4 @@
 docs/
 ^_pkgdown\.yml$
 ^COMMA_hex_sticker.png
+^\.github$
