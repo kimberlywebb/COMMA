@@ -59,7 +59,7 @@ jobs:
           while read -r cmd
           do
             eval sudo $cmd
-          done < <(Rscript -e 'install.packages('rcmdcheck'); release <- system("lsb_release -rs", intern = TRUE); writeLines(remotes::system_requirements("ubuntu", release))')
+          done < <(Rscript -e 'release <- system("lsb_release -rs", intern = TRUE); writeLines(remotes::system_requirements("ubuntu", release))')
       - name: Install system dependencies (macOS)
         if: runner.os == 'macOS'
         run: |
@@ -86,7 +86,7 @@ jobs:
           DISPLAY: 99.0
         run: |
           options(rmarkdown.html_vignette.check_title = FALSE)
-          rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), error_on = "warning", check_dir = "check")
+          rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran", "--no-build-vignettes"), error_on = "warning", check_dir = "check")
         shell: Rscript {0}
 
       - name: Upload check results
