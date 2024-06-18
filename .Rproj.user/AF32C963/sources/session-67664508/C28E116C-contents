@@ -71,6 +71,8 @@
 #' @include COMBO_EM_function.R
 #' @include COMBO_weight.R
 #' @include COMMA_data.R
+#' 
+#' @importFrom stats lm poisson
 #'
 #' @examples \dontrun{
 #' sample_size <- 10000
@@ -336,6 +338,8 @@ COMMA_PVW <- function(Mstar, # Observed mediator vector
     # Remove negative weights (why are these happening?)
     doubled_data_2$w_no_negative <- ifelse(doubled_data_2$w < 0, 0, doubled_data_2$w)
     
+    w_no_negative <- doubled_data_2$w_no_negative
+    
     # Fit weighted logistic regression to estimate theta
     weighted_outcome_model <- glm(y ~ . -y -w -w_no_negative, weights = w_no_negative,
                                   data = doubled_data_2,
@@ -395,6 +399,8 @@ COMMA_PVW <- function(Mstar, # Observed mediator vector
     # Remove negative weights (why are these happening?)
     doubled_data_2$w_no_negative <- ifelse(doubled_data_2$w < 0, 0, doubled_data_2$w)
     
+    w_no_negative <- doubled_data_2$w_no_negative
+    
     # Fit weighted logistic regression to estimate theta
     weighted_outcome_model <- glm(y ~ . -y -w -w_no_negative, weights = w_no_negative,
                                   data = doubled_data_2,
@@ -448,6 +454,8 @@ COMMA_PVW <- function(Mstar, # Observed mediator vector
     
     # Remove negative weights (why are these happening?)
     doubled_data_2$w_no_negative <- ifelse(doubled_data_2$w < 0, 0, doubled_data_2$w)
+    
+    w_no_negative <- doubled_data_2$w_no_negative
     
     # Fit weighted regression to estimate theta
     weighted_outcome_model <- lm(y ~ . -y -w -w_no_negative, weights = w_no_negative,
@@ -507,6 +515,8 @@ COMMA_PVW <- function(Mstar, # Observed mediator vector
     
     # Remove negative weights (why are these happening?)
     doubled_data_2$w_no_negative <- ifelse(doubled_data_2$w < 0, 0, doubled_data_2$w)
+    
+    w_no_negative <- doubled_data_2$w_no_negative
     
     # Fit weighted regression to estimate theta
     weighted_outcome_model <- lm(y ~ . -y -w -w_no_negative, weights = w_no_negative,

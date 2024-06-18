@@ -41,11 +41,6 @@ mediator matrix, \code{mstar_matrix}.}
 
 \item{n_cat}{The number of categorical values that the true outcome, \code{M},
 and the observed outcome, \code{M*}, can take.}
-
-\item{outcome_matrix}{A numeric matrix of indicator variables (0, 1) for the observed
-outcome \code{Y}. Rows of the matrix correspond to each subject. Columns of
-the matrix correspond to each observed outcome category. Each row should contain
-exactly one 0 entry and exactly one 1 entry.}
 }
 \value{
 \code{w_m_normalY} returns a matrix of E-step weights for the EM-algorithm.

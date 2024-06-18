@@ -32,7 +32,7 @@
 #' @include w_m_binaryY.R
 #' @include w_m_normalY.R
 #' 
-#' @importFrom stats rnorm rgamma rmultinom coefficients binomial
+#' @importFrom stats rnorm rgamma rmultinom coefficients binomial optim
 #'
 EM_function_normalY_XM <- function(param_current,
                                    obs_mediator, obs_outcome,

@@ -6,10 +6,6 @@
 #'   mediator \code{M*}. Rows of the matrix correspond to each subject. Columns of
 #'   the matrix correspond to each observed mediator category. Each row should contain
 #'   exactly one 0 entry and exactly one 1 entry.
-#' @param outcome_matrix A numeric matrix of indicator variables (0, 1) for the observed
-#'   outcome \code{Y}. Rows of the matrix correspond to each subject. Columns of
-#'   the matrix correspond to each observed outcome category. Each row should contain
-#'   exactly one 0 entry and exactly one 1 entry.
 #' @param pistar_matrix A numeric matrix of conditional probabilities obtained from
 #'   the internal function \code{pistar_compute}. Rows of the matrix correspond to
 #'   each subject and to each observed mediator category. Columns of the matrix

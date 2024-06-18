@@ -64,6 +64,8 @@
 #' @include COMBO_EM_function.R
 #' @include COMBO_weight.R
 #' @include COMMA_data.R
+#' 
+#' @importFrom stats cov median
 #'
 #' @examples \dontrun{
 #' sample_size <- 10000

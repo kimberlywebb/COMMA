@@ -44,7 +44,7 @@
 #' @include pi_compute.R
 #' @include pistar_compute.R
 #'
-#' @importFrom stats rnorm rgamma rmultinom
+#' @importFrom stats rnorm rgamma rmultinom rpois
 #'
 #' @examples \dontrun{
 #' sample_size <- 10000

@@ -2,9 +2,11 @@
 title: "Demonstration of the COMMA R Package"
 author: 'Created by Kimberly A. Hochstedler Webb. Contact: kah343@cornell.edu'
 date: "2024-04-23"
-output:
-  html_document: default
-  pdf_document: default
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteEngine{knitr::knitr}
+  %\VignetteIndexEntry{Demonstration of the COMMA R Package}
+  %\usepackage[UTF-8]{inputenc}
 ---
 
 ```{r setup, include=FALSE}
@@ -15,8 +17,7 @@ knitr::opts_chunk$set(echo = TRUE,
 library(ggplot2)
 library(kableExtra)
 
-library(devtools)
-#install_github("kimberlywebb/COMMA")
+#devtools::install_github("kimberlywebb/COMMA")
 ```
 
 \centering
