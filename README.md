@@ -1,4 +1,8 @@
-# COMMA ![my workflow](https://github.com/kimberlywebb/COMMA/actions/workflows/r.yml/badge.svg)
+# COMMA 
+
+<!-- badges: start -->
+![my workflow](https://github.com/kimberlywebb/COMMA/actions/workflows/r.yml/badge.svg)
+<!-- badges: end -->
 
 ![ ](https://github.com/kimberlywebb/COMMA/blob/0c1c2c02f672d88543f2fc31a9813c242e24bfc6/COMMA_hex_sticker.png?raw=true)
 
