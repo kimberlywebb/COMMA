@@ -66,9 +66,9 @@ jobs:
         run: |
           brew install homebrew/cask/xquartz
           brew install pkg-config
+          brew install cairo
           brew install udunits
           brew install gdal
-          brew install svglite
       - name: Install dependencies
         if: runner.os != 'Linux'
         run: |
