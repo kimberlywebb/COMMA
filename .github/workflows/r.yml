@@ -56,6 +56,7 @@ jobs:
         run: |
           sudo apt-get update -y
           xvfb-run R --no-save
+          Rscript -e "install.packages('rcmdcheck')"
           while read -r cmd
           do
             eval sudo $cmd
@@ -74,19 +75,13 @@ jobs:
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
 
-      - name: Install dependencies
-        if: runner.os == 'Linux'
-        run: |
-          remotes::install_cran("rcmdcheck")
-        shell: Rscript {0}
-
       - name: Check
         env:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false
           DISPLAY: 99.0
         run: |
           options(rmarkdown.html_vignette.check_title = FALSE)
-          rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran", "--no-build-vignettes"), error_on = "warning", check_dir = "check")
+          rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), error_on = "warning", check_dir = "check")
         shell: Rscript {0}
 
       - name: Upload check results
