@@ -67,6 +67,8 @@ jobs:
           brew install --cask xquartz
           brew install pkg-config
           brew install cairo
+          brew install udunits
+          brew install gdal
       - name: Install dependencies
         if: runner.os != 'Linux'
         run: |
