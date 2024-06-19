@@ -1,26 +1,26 @@
 {
-    "id": "825BEBC0",
-    "path": "~/GitHub/COMMA/R/EM_function_poissonY_XM.R",
-    "project_path": "R/EM_function_poissonY_XM.R",
+    "id": "4471CEF7",
+    "path": "~/GitHub/COMMA/R/EM_function_poissonY.R",
+    "project_path": "R/EM_function_poissonY.R",
     "type": "r_source",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1718727910031.0,
+    "created": 1718727887955.0,
     "source_on_save": false,
-    "relative_order": 14,
+    "relative_order": 13,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "112,21",
-        "scrollLine": "97"
+        "cursorPosition": "104,2",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1718728555,
+    "lastKnownWriteTime": 1718728563,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1718728555695,
+    "last_content_update": 1718728563533,
     "read_only": false,
     "read_only_alternatives": []
 }

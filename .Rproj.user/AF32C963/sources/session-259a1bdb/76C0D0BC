@@ -1,26 +1,26 @@
 {
-    "id": "DDF0266B",
-    "path": "~/GitHub/COMMA/R/COMMA_data.R",
-    "project_path": "R/COMMA_data.R",
+    "id": "76C0D0BC",
+    "path": "~/GitHub/COMMA/R/COMMA_EM.R",
+    "project_path": "R/COMMA_EM.R",
     "type": "r_source",
     "hash": "0",
     "contents": "",
-    "dirty": false,
-    "created": 1718139656785.0,
+    "dirty": true,
+    "created": 1713389885617.0,
     "source_on_save": false,
-    "relative_order": 9,
+    "relative_order": 4,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "46,49",
-        "scrollLine": "36"
+        "cursorPosition": "76,0",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1718727739,
+    "lastKnownWriteTime": 1718209552,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1718727739144,
+    "last_content_update": 1718226044811,
     "read_only": false,
     "read_only_alternatives": []
 }
