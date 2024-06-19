@@ -65,6 +65,8 @@ jobs:
         if: runner.os == 'macOS'
         run: |
           brew install --cask xquartz
+          brew install pkg-config
+          brew install cairo
       - name: Install dependencies
         if: runner.os != 'Linux'
         run: |
