@@ -67,6 +67,8 @@ jobs:
           brew install --cask xquartz
           brew install pkg-config
           brew install cairo
+          brew install svglite
+          brew install gdtools
       - name: Install dependencies
         if: runner.os != 'Linux'
         run: |
