@@ -185,7 +185,7 @@ COMBO_EM_algorithm <- function(Ystar,
   }
   
   # Set parameter names
-  beta_param_names <- paste0(rep("beta", ncol(X)), 1:3)
+  beta_param_names <- paste0(rep("beta", ncol(X)), 1:ncol(X))
   gamma_param_names <- paste0(rep("gamma", (n_cat * ncol(Z))),
                               rep(1:ncol(Z), n_cat),
                               rep(1:n_cat, each = ncol(Z)))
