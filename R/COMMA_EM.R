@@ -423,8 +423,9 @@ COMMA_EM <- function(Mstar, # Observed mediator vector
         turboEM::pars(results)[gamma_index_2 + 1] + turboEM::pars(results)[n_param - ncol(c_mat)], # add theta_m to intercept
         turboEM::pars(results)[(gamma_index_2 + 2):(gamma_index_2 + 1 + ncol(x_mat))] + turboEM::pars(results)[n_param],
         -1 * turboEM::pars(results)[gamma_index_2 + 1 + ncol(x_mat) + 1], # multiply theta_m by -1 
-        turboEM::pars(results)[(gamma_index_2 + 1 + ncol(x_mat) + 1 + 1):(n_param - 1)],
-        -1 * turboEM::pars(results)[n_param])
+        turboEM::pars(results)[(gamma_index_2 + 1 + ncol(x_mat) + 1 + 1):(n_param - 2)],
+        -1 * turboEM::pars(results)[n_param - 1], # multiply interaction term by -1
+        turboEM::pars(results)[n_param]) # Make sure you don't multiply the sigma!
     }
     
     # Set parameter names
