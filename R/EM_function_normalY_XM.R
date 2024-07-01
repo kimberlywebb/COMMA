@@ -146,14 +146,22 @@ EM_function_normalY_XM <- function(param_current,
     
     sigma_new <- sigma_update
   } else {
+    theta_constraints_lower <- rep(-Inf, length(theta_current))
+    theta_constraints_upper <- rep(Inf, length(theta_current))
+    sigma_constraints_lower <- 0
+    sigma_constraints_upper <- Inf
     
     theta_sigma_new_optim <- optim(par = c(theta_current, sigma_current),
                                    fn = theta_optim_XM,
+                                   lower = c(theta_constraints_lower,
+                                             sigma_constraints_lower),
+                                   upper = c(theta_constraints_upper, 
+                                             sigma_constraints_upper),
                                    m = weights[,1],
                                    x = X[,2], c_matrix = c_matrix,
                                    outcome = obs_outcome,
                                    sample_size = sample_size,
-                                   n_cat = 2, method = "BFGS")
+                                   n_cat = 2, method = "L-BFGS-B")
     
     theta_new <- theta_sigma_new_optim$par[-length(theta_sigma_new_optim$par)]
     sigma_new <- theta_sigma_new_optim$par[length(theta_sigma_new_optim$par)]
