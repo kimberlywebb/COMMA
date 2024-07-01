@@ -169,7 +169,7 @@ COMMA_PVW <- function(Mstar, # Observed mediator vector
   
   # Create matrix of predictors for the observed mediator
   Z_design <- matrix(c(rep(1, sample_size), z_matrix),
-                     ncol = 2, byrow = FALSE)
+                     nrow = sample_size, byrow = FALSE)
   
   # Generate probabilities for observed mediator conditional on true mediator
   ## Based on EM results
