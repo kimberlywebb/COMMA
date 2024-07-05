@@ -21,12 +21,12 @@ The two main parts are:
 
 Classification probability calculations
 --------------------------------------------------
-The package allows users to compute the probability of the latent true mediators and the conditional probability of observing a mediator value given the latent true mediator, based on parameters estimated from the `COMMA_EM` and `COMMA_PVW` functions.
+The package allows users to compute the probability of the latent true mediators and the conditional probability of observing a mediator value given the latent true mediator, based on parameters estimated from the `COMMA_EM`, `COMMA_PVW`, and `COMMA_OLS` functions.
 
 
 Parameter estimation 
 --------------------------------------------------
-Jointly estimate parameters from the true outcome and observation mechanisms, respectively, in a binary outcome misclassification model using the EM algorithm or MCMC. Parameters from the true outcome, first-stage observation, and second-stage observation mechanisms in a two-stage binary outcome misclassification model can also be estimated using the EM algorithm and MCMC.
+Jointly estimate parameters from the true mediator, observed mediator, and outcome mechanisms, respectively, in a mediation analysis with a binary misclassified mediator variable. Three methods are provided for parameter estimation: an ordinary least squares correction procedure, a predictive value weighting approach, and an expectation-maximization algorithm.
 
 Installation
 --------------------------------------------------
