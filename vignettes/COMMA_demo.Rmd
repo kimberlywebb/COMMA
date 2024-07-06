@@ -20,8 +20,6 @@ library(kableExtra)
 #devtools::install_github("kimberlywebb/COMMA")
 ```
 
-\centering
-![](/Users/kimho/Dropbox/Misclassification/Code/RPackages/COMMA/COMMA_hex_sticker.png){width=30%}
 
 \raggedright
 
