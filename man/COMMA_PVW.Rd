@@ -100,8 +100,8 @@ approach.
 Note that this method can only be used for binary outcome models.
 }
 \examples{
-\dontrun{
-sample_size <- 10000
+set.seed(20240709)
+sample_size <- 2000
 
 n_cat <- 2 # Number of categories in the binary mediator
 
@@ -131,9 +131,11 @@ x_matrix = example_data[["x"]]
 z_matrix = example_data[["z"]]
 c_matrix = example_data[["c"]]
                            
-PVW_results <- COMMA_PVW(Mstar, outcome, FALSE, 
+PVW_results <- COMMA_PVW(Mstar, outcome, outcome_distribution = "Bernoulli",
+                         interaction_indicator = FALSE,
                          x_matrix, z_matrix, c_matrix,
                          beta_start, gamma_start, theta_start)
-}
+
+PVW_results
 
 }

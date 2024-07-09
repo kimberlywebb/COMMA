@@ -71,6 +71,7 @@ mechanism from the Gamma distribution.}
 Generate Data to use in COMMA Functions
 }
 \examples{
+set.seed(20240709)
 sample_size <- 10000
 
 n_cat <- 2 # Number of categories in the binary mediator
@@ -91,6 +92,7 @@ example_data <- COMMA_data(sample_size, x_mu, x_sigma, z_shape, c_shape,
                            outcome_distribution = "Bernoulli",
                            true_beta, true_gamma, true_theta)
 
-head(example_data) 
+head(example_data$obs_mediator)
+head(example_data$true_mediator) 
 
 }

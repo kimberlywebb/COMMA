@@ -47,6 +47,7 @@
 #' @importFrom stats rnorm rgamma rmultinom rpois
 #'
 #' @examples 
+#' set.seed(20240709)
 #' sample_size <- 10000
 #' 
 #' n_cat <- 2 # Number of categories in the binary mediator
@@ -67,7 +68,8 @@
 #'                            outcome_distribution = "Bernoulli",
 #'                            true_beta, true_gamma, true_theta)
 #'
-#' head(example_data) 
+#' head(example_data$obs_mediator)
+#' head(example_data$true_mediator) 
 #' 
 COMMA_data <- function(sample_size,
                        x_mu, # Mean of X ~ Normal

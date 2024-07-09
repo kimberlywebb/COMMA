@@ -158,7 +158,7 @@ mechanism from the Gamma distribution.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">20240709</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">sample_size</span> <span class="op">&lt;-</span> <span class="fl">10000</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">n_cat</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="co"># Number of categories in the binary mediator</span></span></span>
@@ -178,8 +178,11 @@ mechanism from the Gamma distribution.</p></dd>
 <span class="r-in"><span>                           interaction_indicator <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
 <span class="r-in"><span>                           outcome_distribution <span class="op">=</span> <span class="st">"Bernoulli"</span>,</span></span>
 <span class="r-in"><span>                           <span class="va">true_beta</span>, <span class="va">true_gamma</span>, <span class="va">true_theta</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">example_data</span><span class="op">$</span><span class="va">obs_mediator</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 2 2 1 2 2</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">example_data</span><span class="op">$</span><span class="va">true_mediator</span><span class="op">)</span> </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 1 2 1 1 2</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

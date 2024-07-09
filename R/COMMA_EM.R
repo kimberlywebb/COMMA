@@ -78,8 +78,9 @@
 #' @importFrom turboEM turboem
 #' @importFrom Matrix nearPD
 #'
-#' @examples \dontrun{
-#' sample_size <- 10000
+#' @examples
+#' set.seed(20240709)
+#' sample_size <- 2000
 #' 
 #' n_cat <- 2 # Number of categories in the binary mediator
 #' 
@@ -112,7 +113,9 @@
 #' EM_results <- COMMA_EM(Mstar, outcome, "Bernoulli", FALSE,
 #'                        x_matrix, z_matrix, c_matrix,
 #'                        beta_start, gamma_start, theta_start)
-#'}
+#' 
+#' EM_results
+#'
 COMMA_EM <- function(Mstar, # Observed mediator vector
                      outcome, # Outcome vector
                      outcome_distribution,

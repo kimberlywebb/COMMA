@@ -100,8 +100,8 @@ the true mediator, observed mediator, and outcome mechanisms, respectively,
 in a binary mediator misclassification model.
 }
 \examples{
-\dontrun{
-sample_size <- 10000
+set.seed(20240709)
+sample_size <- 2000
 
 n_cat <- 2 # Number of categories in the binary mediator
 
@@ -134,5 +134,7 @@ c_matrix = example_data[["c"]]
 EM_results <- COMMA_EM(Mstar, outcome, "Bernoulli", FALSE,
                        x_matrix, z_matrix, c_matrix,
                        beta_start, gamma_start, theta_start)
-}
+
+EM_results
+
 }

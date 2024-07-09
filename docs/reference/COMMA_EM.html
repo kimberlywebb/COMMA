@@ -181,8 +181,8 @@ whether or not the algorithm converged for a given parameter estimate.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="va">sample_size</span> <span class="op">&lt;-</span> <span class="fl">10000</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">20240709</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">sample_size</span> <span class="op">&lt;-</span> <span class="fl">2000</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">n_cat</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="co"># Number of categories in the binary mediator</span></span></span>
 <span class="r-in"><span></span></span>
@@ -215,7 +215,105 @@ whether or not the algorithm converged for a given parameter estimate.</p>
 <span class="r-in"><span><span class="va">EM_results</span> <span class="op">&lt;-</span> <span class="fu">COMMA_EM</span><span class="op">(</span><span class="va">Mstar</span>, <span class="va">outcome</span>, <span class="st">"Bernoulli"</span>, <span class="cn">FALSE</span>,</span></span>
 <span class="r-in"><span>                       <span class="va">x_matrix</span>, <span class="va">z_matrix</span>, <span class="va">c_matrix</span>,</span></span>
 <span class="r-in"><span>                       <span class="va">beta_start</span>, <span class="va">gamma_start</span>, <span class="va">theta_start</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: doParallel</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: foreach</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: iterators</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: parallel</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: numDeriv</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: quantreg</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'quantreg' was built under R version 4.3.3</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: SparseM</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'SparseM' was built under R version 4.3.3</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: 'SparseM'</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from 'package:base':</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     backsolve</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: 'turboEM'</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from 'package:numDeriv':</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     grad, hessian</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>non-integer #successes in a binomial glm!</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">EM_results</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Parameter  Estimates Convergence</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     beta_0  0.8355459        TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     beta_1 -1.6157072        TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     beta_2  0.3864456        TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4    gamma11  1.0924272        TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    gamma21  1.4723205        TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6    gamma12 -0.2875945        TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7    gamma22 -1.7222641        TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8    theta_0  0.8914868        TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   theta_x1  1.7143072        TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10   theta_m -1.9727559        TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11  theta_c1 -0.1759259        TRUE</span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

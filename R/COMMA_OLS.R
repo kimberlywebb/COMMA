@@ -67,8 +67,9 @@
 #' 
 #' @importFrom stats cov median
 #'
-#' @examples \dontrun{
-#' sample_size <- 10000
+#' @examples 
+#' set.seed(20240709)
+#' sample_size <- 2000
 #' 
 #' n_cat <- 2 # Number of categories in the binary mediator
 #' 
@@ -81,7 +82,7 @@
 #' # True parameter values (gamma terms set the misclassification rate)
 #' true_beta <- matrix(c(1, -2, .5), ncol = 1)
 #' true_gamma <- matrix(c(1, 1, -.5, -1.5), nrow = 2, byrow = FALSE)
-#' true_theta <- matrix(c(1, 1.5, -2, -.2), ncol = 1)
+#' true_theta <- matrix(c(1, 1.5, -2, 2), ncol = 1)
 #' 
 #' example_data <- COMMA_data(sample_size, x_mu, x_sigma, z_shape, c_shape,
 #'                            interaction_indicator = FALSE,
@@ -98,10 +99,12 @@
 #' z_matrix = example_data[["z"]]
 #' c_matrix = example_data[["c"]]
 #'                            
-#' OLS_results <- COMMA_OLS(Mstar, outcome, FALSE, 
+#' OLS_results <- COMMA_OLS(Mstar, outcome,
 #'                          x_matrix, z_matrix, c_matrix,
 #'                          beta_start, gamma_start, theta_start)
-#'}
+#'                          
+#' OLS_results
+#'
 #' 
 COMMA_OLS <- function(Mstar, # Observed mediator vector
                       outcome, # Outcome vector
