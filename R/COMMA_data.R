@@ -46,7 +46,7 @@
 #'
 #' @importFrom stats rnorm rgamma rmultinom rpois
 #'
-#' @examples \dontrun{
+#' @examples 
 #' sample_size <- 10000
 #' 
 #' n_cat <- 2 # Number of categories in the binary mediator
@@ -66,8 +66,8 @@
 #'                            interaction_indicator = FALSE,
 #'                            outcome_distribution = "Bernoulli",
 #'                            true_beta, true_gamma, true_theta)
-#'}
-#' 
+#'
+#' head(example_data) 
 #' 
 COMMA_data <- function(sample_size,
                        x_mu, # Mean of X ~ Normal

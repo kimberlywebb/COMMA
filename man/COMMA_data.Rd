@@ -71,7 +71,6 @@ mechanism from the Gamma distribution.}
 Generate Data to use in COMMA Functions
 }
 \examples{
-\dontrun{
 sample_size <- 10000
 
 n_cat <- 2 # Number of categories in the binary mediator
@@ -91,7 +90,7 @@ example_data <- COMMA_data(sample_size, x_mu, x_sigma, z_shape, c_shape,
                            interaction_indicator = FALSE,
                            outcome_distribution = "Bernoulli",
                            true_beta, true_gamma, true_theta)
-}
 
+head(example_data) 
 
 }

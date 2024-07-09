@@ -8,7 +8,9 @@ Author: Kimberly Webb [aut, cre]
 Maintainer: Kimberly Webb  <kah343@cornell.edu>
 Description: Use three methods to estimate parameters from a mediation analysis
   with a binary misclassified mediator. These methods correct for the problem
-  of "label switching" using Youden's J criteria. 
+  of "label switching" using Youden's J criteria. A detailed description of the 
+  analysis methods is available in Webb and Wells (2024), "Effect estimation in 
+  the presence of a misclassified binary mediator" <doi:INSERT-NUMBER/arXiv.INSERT-NUMBER!>
 Depends:
     R (>= 4.2.0)
 Imports:
