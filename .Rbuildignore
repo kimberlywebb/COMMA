@@ -5,3 +5,4 @@ docs/
 ^COMMA_hex_sticker.png
 ^\.github$
 ^LICENSE\.md$
+^data-raw$

@@ -14,10 +14,11 @@ reference:
       - '`COMMA_EM`'
       - '`COMMA_PVW`'
       - '`COMMA_OLS`'
-  - title: Data generation for examples
+  - title: Data generation for examples and sample datasets
     desc: Function to generate data with misclassified binary outcomes
     contents:
       - '`COMMA_data`'
+      - '`NCHS2022_sample`'
   - title: Internals
     desc: Internal functions and helpers
     contents:

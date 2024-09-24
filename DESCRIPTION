@@ -27,7 +27,7 @@ Suggests:
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Collate: 
     'sum_every_n1.R'
@@ -49,6 +49,7 @@ Collate:
     'COMMA_PVW.R'
     'EM_function_poissonY.R'
     'EM_function_poissonY_XM.R'
+    'NCHS2022_sample.R'
     'misclassification_prob.R'
     'theta_optim.R'
     'theta_optim_XM.R'
