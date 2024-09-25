@@ -45,6 +45,7 @@
 #' @importFrom foreach foreach %dopar% 
 #' @importFrom doParallel registerDoParallel
 #' @importFrom dplyr %>% group_by ungroup summarise
+#' @importFrom stats sd
 #'
 #' @examples
 #' set.seed(20240709)
@@ -125,8 +126,12 @@ COMMA_PVW_bootstrap_SE <- function(parameter_estimates,
     ncol = 2, byrow = FALSE)
   theta_start <- parameter_estimates[(2 + ((ncol(mediation_model_predictors) + (ncol(Z) * 2)))):length(parameter_estimates)]
   
+  i = NULL
+  Parameter = NULL
+  Estimates = NULL
+  
   cluster <- parallel::makeCluster(n_parallel) 
-  registerDoParallel(cluster)
+  doParallel::registerDoParallel(cluster)
   
   bootstrap_df <- foreach(i = 1:n_bootstrap,
           .combine = rbind) %dopar% {
@@ -154,10 +159,10 @@ COMMA_PVW_bootstrap_SE <- function(parameter_estimates,
   stopCluster(cluster)
   
   bootstrap_SE <- bootstrap_df %>%
-    group_by(Parameter) %>%
-    summarise(Mean = mean(Estimates, na.rm = TRUE),
-              SE = sd(Estimates, na.rm = TRUE)) %>%
-    ungroup()
+    dplyr::group_by(Parameter) %>%
+    dplyr::summarise(Mean = mean(Estimates, na.rm = TRUE),
+                     SE = stats::sd(Estimates, na.rm = TRUE)) %>%
+    dplyr::ungroup()
   
   bootstrap_results <- list(bootstrap_df = bootstrap_df,
                             bootstrap_SE = bootstrap_SE)
