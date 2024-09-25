@@ -18,7 +18,7 @@ Imports:
     turboEM (>= 2021.1),
     dplyr (>= 1.1.4),
     foreach (>= 1.5.2),
-    parallel (>= 4.3.3),
+    parallel (>= 4.3.1),
     doParallel (>= 1.0.17)
 Suggests:
     knitr (>= 1.40),
@@ -48,9 +48,10 @@ Collate:
     'EM_function_bernoulliY_XM.R'
     'EM_function_bernoulliY.R'
     'COMMA_EM.R'
+    'COMMA_boot_sample.R'
+    'COMMA_EM_bootstrap_SE.R'
     'COMMA_OLS.R'
     'COMMA_PVW.R'
-    'COMMA_boot_sample.R'
     'COMMA_PVW_bootstrap_SE.R'
     'EM_function_poissonY.R'
     'EM_function_poissonY_XM.R'
