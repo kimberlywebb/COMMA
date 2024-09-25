@@ -108,7 +108,7 @@ PVW_results <- COMMA_PVW(Mstar, outcome, outcome_distribution = "Bernoulli",
 
 PVW_results
 
-PVW_SEs <- COMMA_PVW_bootstrap_SE(PVW_results$Estimates, n_bootstrap = 5,
+PVW_SEs <- COMMA_PVW_bootstrap_SE(PVW_results$Estimates, n_bootstrap = 3,
                                   n_parallel = 1,
                                   outcome_distribution = "Bernoulli",
                                   interaction_indicator = FALSE,
