@@ -41,7 +41,10 @@
 #' @include COMMA_PVW.R
 #' @include COMMA_boot_sample.R
 #' 
-#' @importFrom doParallel foreach %dopar% makeCluster registerDoParallel stopCluster
+#' @importFrom parallel makeCluster stopCluster
+#' @importFrom foreach foreach %dopar% 
+#' @importFrom doParallel registerDoParallel
+#' @importFrom dplyr %>% group_by ungroup summarise
 #'
 #' @examples
 #' set.seed(20240709)
@@ -102,7 +105,7 @@ COMMA_PVW_bootstrap_SE <- function(parameter_estimates,
                                    em_method = "squarem"){
   
   n_cat = 2 # Number of categories in mediator
-  sample_size = length(Mstar) # Sample size
+  sample_size = length(c(x_matrix)) # Sample size
   
   # Create design matrices
   X = matrix(c(rep(1, sample_size), c(x_matrix)),
@@ -122,10 +125,10 @@ COMMA_PVW_bootstrap_SE <- function(parameter_estimates,
     ncol = 2, byrow = FALSE)
   theta_start <- parameter_estimates[(2 + ((ncol(mediation_model_predictors) + (ncol(Z) * 2)))):length(parameter_estimates)]
   
-  cluster <- makeCluster(n_parallel) 
+  cluster <- parallel::makeCluster(n_parallel) 
   registerDoParallel(cluster)
   
-  foreach(i = 1:n_bootstrap,
+  bootstrap_df <- foreach(i = 1:n_bootstrap,
           .combine = rbind) %dopar% {
     
     boot_sample_i <- COMMA_boot_sample(parameter_estimates,
@@ -150,13 +153,13 @@ COMMA_PVW_bootstrap_SE <- function(parameter_estimates,
   
   stopCluster(cluster)
   
-  bootstrap_SE <- bootstrap_param %>%
+  bootstrap_SE <- bootstrap_df %>%
     group_by(Parameter) %>%
     summarise(Mean = mean(Estimates, na.rm = TRUE),
               SE = sd(Estimates, na.rm = TRUE)) %>%
     ungroup()
   
-  bootstrap_results <- list(bootstrap_df = bootstrap_param,
+  bootstrap_results <- list(bootstrap_df = bootstrap_df,
                             bootstrap_SE = bootstrap_SE)
   
   

@@ -10,10 +10,12 @@
 <url><loc>/reference/COMBO_EM_algorithm.html</loc></url>
 <url><loc>/reference/COMBO_EM_function.html</loc></url>
 <url><loc>/reference/COMBO_weight.html</loc></url>
+<url><loc>/reference/COMMA_boot_sample.html</loc></url>
 <url><loc>/reference/COMMA_data.html</loc></url>
 <url><loc>/reference/COMMA_EM.html</loc></url>
 <url><loc>/reference/COMMA_OLS.html</loc></url>
 <url><loc>/reference/COMMA_PVW.html</loc></url>
+<url><loc>/reference/COMMA_PVW_bootstrap_SE.html</loc></url>
 <url><loc>/reference/EM_function_bernoulliY.html</loc></url>
 <url><loc>/reference/EM_function_bernoulliY_XM.html</loc></url>
 <url><loc>/reference/EM_function_normalY.html</loc></url>

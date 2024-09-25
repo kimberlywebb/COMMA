@@ -44,14 +44,11 @@ the outcome variable. Options are \code{"Bernoulli"}, \code{"Normal"}, or
 \item{obs_mediator}{A vector of observed mediator values.}
 \item{true_mediator}{A vector of true mediator values.}
 \item{outcome}{A vector of outcome values.}
-\item{x}{A matrix of predictor values in the true mediator
-mechanism.}
-\item{z}{A matrix of predictor values in the observed mediator
-mechanism.}
-\item{c}{A matrix of covariates.}
-\item{x_design_matrix}{The design matrix for the \code{x} predictor.}
-\item{z_design_matrix}{The design matrix for the \code{z} predictor.}
-\item{c_design_matrix}{The design matrix for the \code{c} predictor.}
+\item{x_matrix}{A matrix of predictor values in the true mediator
+mechanism. Identical to that supplied by the user.}
+\item{z_matrix}{A matrix of predictor values in the observed mediator
+mechanism. Identical to that supplied by the user.}
+\item{c_matrix}{A matrix of covariates. Identical to that supplied by the user.}
 }
 \description{
 Generate Bootstrap Samples for Estimating Standard Errors

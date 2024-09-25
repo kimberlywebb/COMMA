@@ -42,7 +42,7 @@ COMMA_boot_sample <- function(parameter_estimates,
                               x_matrix, z_matrix, c_matrix){
   
   n_cat = 2 # Number of categories in mediator
-  sample_size = length(Mstar) # Sample size
+  sample_size = length(c(x_matrix)) # Sample size
   
   # Create design matrices
   X = matrix(c(rep(1, sample_size), c(x_matrix)),
@@ -100,7 +100,7 @@ COMMA_boot_sample <- function(parameter_estimates,
     outcome_design_matrix <- matrix(c(rep(1, sample_size),
                                       x_matrix, m_indicator, c_matrix),
                                     nrow = sample_size, byrow = FALSE)
-    exp_result <- exp(outcome_design_matrix %*% true_theta)
+    exp_result <- exp(outcome_design_matrix %*% theta_param)
     
     exp_denominator <- 1 + exp_result
     
@@ -124,7 +124,7 @@ COMMA_boot_sample <- function(parameter_estimates,
                                       x_matrix, m_indicator, c_matrix,
                                       interaction_term),
                                     nrow = sample_size, byrow = FALSE)
-    exp_result <- exp(outcome_design_matrix %*% true_theta)
+    exp_result <- exp(outcome_design_matrix %*% theta_param)
     
     exp_denominator <- 1 + exp_result
     
@@ -149,7 +149,7 @@ COMMA_boot_sample <- function(parameter_estimates,
                                     nrow = sample_size, byrow = FALSE)
     
     # Generate mean and Normal errors
-    additive_term <- outcome_design_matrix %*% true_theta
+    additive_term <- outcome_design_matrix %*% theta_param
     additive_term_error <- rnorm(sample_size) # Errors generated with SD, sigma = 1
     
     # Return value of Y
@@ -163,7 +163,7 @@ COMMA_boot_sample <- function(parameter_estimates,
                                     nrow = sample_size, byrow = FALSE)
     
     # Generate mean and Normal errors
-    additive_term <- outcome_design_matrix %*% true_theta
+    additive_term <- outcome_design_matrix %*% theta_param
     additive_term_error <- rnorm(sample_size) # Errors generated with SD, sigma = 1
     
     # Return value of Y
@@ -177,7 +177,7 @@ COMMA_boot_sample <- function(parameter_estimates,
                                     nrow = sample_size, byrow = FALSE)
     
     # Generate mean
-    exp_result <- exp(outcome_design_matrix %*% true_theta)
+    exp_result <- exp(outcome_design_matrix %*% theta_param)
     
     # Return value of Y
     outcome <- rpois(sample_size, exp_result)
@@ -189,7 +189,7 @@ COMMA_boot_sample <- function(parameter_estimates,
                                       interaction_term),
                                     nrow = sample_size, byrow = FALSE)
     # Generate mean
-    exp_result <- exp(outcome_design_matrix %*% true_theta)
+    exp_result <- exp(outcome_design_matrix %*% theta_param)
     
     # Return value of Y
     outcome <- rpois(sample_size, exp_result)

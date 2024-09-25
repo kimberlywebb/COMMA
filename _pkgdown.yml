@@ -9,10 +9,11 @@ reference:
       - '`true_classification_prob`'
       - '`misclassification_prob`'
   - title: Estimation
-    desc: Functions to estimate regression parameters
+    desc: Functions to estimate regression parameters and standard errors
     contents:
       - '`COMMA_EM`'
       - '`COMMA_PVW`'
+      - '`COMMA_PVW_bootstrap_SE`'
       - '`COMMA_OLS`'
   - title: Data generation for examples and sample datasets
     desc: Function to generate data with misclassified binary outcomes
@@ -25,6 +26,7 @@ reference:
       - '`COMBO_EM_algorithm`'
       - '`COMBO_EM_function`'
       - '`COMBO_weight`'
+      - '`COMMA_boot_sample`' 
       - '`EM_function_bernoulliY`'
       - '`EM_function_bernoulliY_XM`'
       - '`EM_function_normalY`'
