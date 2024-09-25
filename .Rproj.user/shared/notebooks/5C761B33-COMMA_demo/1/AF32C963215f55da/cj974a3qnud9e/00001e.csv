@@ -1,9 +1,0 @@
-"0","# Estimate parameters using the EM-Algorithm.
-EM_results <- COMMA_EM(Mstar, outcome, outcome_distribution = ""Normal"",
-                       interaction_indicator = TRUE,
-                       x_matrix, z_matrix, c_matrix,
-                       beta_start, gamma_start, theta_start, sigma_start = 1)
-"
-"2","Error in data.frame(Parameter = c(beta_param_names, gamma_param_names,  : 
-  arguments imply differing number of rows: 15, 14
-"
