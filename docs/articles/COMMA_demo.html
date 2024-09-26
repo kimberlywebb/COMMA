@@ -10,7 +10,7 @@
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Demonstration of the COMMA R Package">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="../deps/MathJax-3.2.2/tex-chtml.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Demonstration of the COMMA R Package">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -79,44 +79,27 @@ by Kimberly A. Hochstedler Webb and Martin T. Wells.</p>
 <div class="section level2">
 <h2 id="model-and-conceptual-framework">Model and Conceptual Framework<a class="anchor" aria-label="anchor" href="#model-and-conceptual-framework"></a>
 </h2>
-<p>Let
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-denote a predictor of interest.
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
-denotes a matrix of covariates.
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-is the outcome variable of interest. The relationship between
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-may be mediated by
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>.
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">M = m</annotation></semantics></math>
-denotes an observation’s true mediator value, with
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">m \in \{1, 2\}</annotation></semantics></math>.
-We do not observe
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
-directly. Instead, we observe
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>M</mi><mo>*</mo></msup><annotation encoding="application/x-tex">M^*</annotation></semantics></math>,
-a potentially misclassified (noisy) version of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>.
-Given
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>,
-a subject’s observed mediator value
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>M</mi><mo>*</mo></msup><annotation encoding="application/x-tex">M^*</annotation></semantics></math>
-depends on a set of predictors
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>.
-The true mediator, observed mediator, and outcome mechanisms are
-provided below.</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext mathvariant="normal">True mediator mechanism: </mtext><mspace width="0.333em"></mspace></mrow><mtext mathvariant="normal">logit</mtext><mo stretchy="false" form="prefix">{</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>M</mi><mo>=</mo><mn>1</mn><mo stretchy="false" form="prefix">|</mo><mi>X</mi><mo>,</mo><mi>𝐂</mi><mo>;</mo><mi>𝛃</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="false" form="postfix">}</mo><mo>=</mo><msub><mi>β</mi><mn>0</mn></msub><mo>+</mo><msub><mi>β</mi><mi>X</mi></msub><mi>X</mi><mo>+</mo><mrow><msub><mi>𝛃</mi><mi>𝐂</mi></msub><mi>𝐂</mi></mrow></mrow><annotation encoding="application/x-tex">\text{True mediator mechanism: } \text{logit}\{ P(M = 1 | X, \boldsymbol{C} ; \boldsymbol{\beta}) \} = \beta_{0} + \beta_{X} X + \boldsymbol{\beta_{C} C}</annotation></semantics></math><span class="math display">$$\text{Observed mediator mechanisms: }
+<p>Let <span class="math inline">\(X\)</span> denote a predictor of
+interest. <span class="math inline">\(C\)</span> denotes a matrix of
+covariates. <span class="math inline">\(Y\)</span> is the outcome
+variable of interest. The relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> may be mediated by <span class="math inline">\(M\)</span>. <span class="math inline">\(M =
+m\)</span> denotes an observation’s true mediator value, with <span class="math inline">\(m \in \{1, 2\}\)</span>. We do not observe <span class="math inline">\(M\)</span> directly. Instead, we observe <span class="math inline">\(M^*\)</span>, a potentially misclassified (noisy)
+version of <span class="math inline">\(M\)</span>. Given <span class="math inline">\(M\)</span>, a subject’s observed mediator value
+<span class="math inline">\(M^*\)</span> depends on a set of predictors
+<span class="math inline">\(Z\)</span>. The true mediator, observed
+mediator, and outcome mechanisms are provided below.</p>
+<p><span class="math display">\[\text{True mediator mechanism: }
+\text{logit}\{ P(M = 1 | X, \boldsymbol{C} ; \boldsymbol{\beta}) \} =
+\beta_{0} + \beta_{X} X + \boldsymbol{\beta_{C} C}\]</span> <span class="math display">\[\text{Observed mediator mechanisms: }
 \text{logit}\{ P(M^* = 1 | M = 1, \boldsymbol{Z} ; \boldsymbol{\gamma})
 \} = \gamma_{110} + \boldsymbol{\gamma_{11Z} Z}, \\
 \text{logit}\{ P(M^* = 1 | M = 2, \boldsymbol{Z} ; \boldsymbol{\gamma})
-\} = \gamma_{120} + \boldsymbol{\gamma_{12Z} Z}$$</span>
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext mathvariant="normal">Outcome mechanism: </mtext><mspace width="0.333em"></mspace></mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="prefix">|</mo><mi>X</mi><mo>,</mo><mi>𝐂</mi><mo>,</mo><mi>M</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>θ</mi><mn>0</mn></msub><mo>+</mo><msub><mi>θ</mi><mi>X</mi></msub><mi>X</mi><mo>+</mo><mrow><msub><mi>𝛉</mi><mi>𝐂</mi></msub><mi>𝐂</mi></mrow><mo>+</mo><msub><mi>θ</mi><mi>M</mi></msub><mi>M</mi><mo>+</mo><msub><mi>θ</mi><mrow><mi>X</mi><mi>M</mi></mrow></msub><mi>X</mi><mi>M</mi></mrow><annotation encoding="application/x-tex">\text{Outcome mechanism: } E(Y | X, \boldsymbol{C}, M) = \theta_0 + \theta_X X + \boldsymbol{\theta_C C} + \theta_M M + \theta_{XM} XM</annotation></semantics></math>
-If we have a Bernoulli outcome that we model with a logit link, the
-<em>outcome mechanism</em> can be
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">logit</mtext><mo stretchy="false" form="prefix">{</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>=</mo><mn>1</mn><mo stretchy="false" form="prefix">|</mo><mi>X</mi><mo>,</mo><mi>𝐂</mi><mo>,</mo><mi>M</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="false" form="postfix">}</mo><mo>=</mo><msub><mi>θ</mi><mn>0</mn></msub><mo>+</mo><msub><mi>θ</mi><mi>X</mi></msub><mi>X</mi><mo>+</mo><mrow><msub><mi>𝛉</mi><mi>𝐂</mi></msub><mi>𝐂</mi></mrow><mo>+</mo><msub><mi>θ</mi><mi>m</mi></msub><mi>M</mi><mo>+</mo><msub><mi>θ</mi><mrow><mi>X</mi><mi>M</mi></mrow></msub><mi>X</mi><mi>M</mi></mrow><annotation encoding="application/x-tex">\text{logit}\{P(Y = 1 | X, \boldsymbol{C}, M) \} = \theta_0 + \theta_X X + \boldsymbol{\theta_C C} + \theta_m M + \theta_{XM} XM</annotation></semantics></math>.</p>
+\} = \gamma_{120} + \boldsymbol{\gamma_{12Z} Z}\]</span> <span class="math display">\[\text{Outcome mechanism: } E(Y | X,
+\boldsymbol{C}, M) = \theta_0 + \theta_X X + \boldsymbol{\theta_C C} +
+\theta_M M + \theta_{XM} XM\]</span> If we have a Bernoulli outcome that
+we model with a logit link, the <em>outcome mechanism</em> can be <span class="math inline">\(\text{logit}\{P(Y = 1 | X, \boldsymbol{C}, M) \} =
+\theta_0 + \theta_X X + \boldsymbol{\theta_C C} + \theta_m M +
+\theta_{XM} XM\)</span>.</p>
 </div>
 <div class="section level2">
 <h2 id="simulate-data---normal-outcome">Simulate data - Normal outcome<a class="anchor" aria-label="anchor" href="#simulate-data---normal-outcome"></a>
