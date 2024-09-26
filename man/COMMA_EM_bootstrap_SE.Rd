@@ -112,7 +112,8 @@ EM_results <- COMMA_EM(Mstar, outcome, "Bernoulli", FALSE,
 
 EM_results
 
-EM_SEs <- COMMA_EM_bootstrap_SE(EM_results$Estimates, n_bootstrap = 3,
+EM_SEs <- COMMA_EM_bootstrap_SE(EM_results$Estimates, sigma_estimate = NULL,
+                                n_bootstrap = 3,
                                 n_parallel = 1,
                                 outcome_distribution = "Bernoulli",
                                 interaction_indicator = FALSE,

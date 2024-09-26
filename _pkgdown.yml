@@ -16,6 +16,7 @@ reference:
       - '`COMMA_PVW`'
       - '`COMMA_PVW_bootstrap_SE`'
       - '`COMMA_OLS`'
+      - '`COMMA_OLS_bootstrap_SE`'
   - title: Data generation for examples and sample datasets
     desc: Function to generate data with misclassified binary outcomes
     contents:

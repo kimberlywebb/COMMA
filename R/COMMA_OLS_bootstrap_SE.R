@@ -127,12 +127,12 @@ COMMA_OLS_bootstrap_SE <- function(parameter_estimates,
           .combine = rbind) %dopar% {
     
     boot_sample_i <- COMMA_boot_sample(parameter_estimates,
-                                       outcome_distribution,
-                                       interaction_indicator,
+                                       outcome_distribution = "Normal",
+                                       interaction_indicator = FALSE,
                                        # Predictor matrices
                                        x_matrix, z_matrix, c_matrix)
     
-    bootstrap_param <- COMMA_PVW(boot_sample_i[["obs_mediator"]],
+    bootstrap_param <- COMMA_OLS(boot_sample_i[["obs_mediator"]],
                                  boot_sample_i[["outcome"]],
                                  x_matrix, z_matrix, c_matrix,
                                  beta_start, gamma_start, theta_start,
