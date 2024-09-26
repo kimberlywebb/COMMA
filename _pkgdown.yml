@@ -12,6 +12,7 @@ reference:
     desc: Functions to estimate regression parameters and standard errors
     contents:
       - '`COMMA_EM`'
+      - '`COMMA_EM_bootstrap_SE`'
       - '`COMMA_PVW`'
       - '`COMMA_PVW_bootstrap_SE`'
       - '`COMMA_OLS`'
