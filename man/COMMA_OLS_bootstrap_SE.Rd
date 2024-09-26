@@ -6,6 +6,7 @@
 \usage{
 COMMA_OLS_bootstrap_SE(
   parameter_estimates,
+  sigma_estimate = 1,
   n_bootstrap,
   n_parallel,
   x_matrix,
@@ -25,6 +26,9 @@ mechanism, intercept and slope from the M = 2 mechanism), and 3) \eqn{\theta}
 (intercept, slope, coefficient for \code{x}, slope coefficient for \code{m},
 slope coefficient for \code{c}, and, optionally, slope coefficient for
 \code{xm} if using).}
+
+\item{sigma_estimate}{A numeric value specifying the estimated
+standard deviation. Default is 1.}
 
 \item{n_bootstrap}{A numeric value specifying the number of bootstrap samples
 to draw.}
@@ -98,7 +102,8 @@ OLS_results <- COMMA_OLS(Mstar, outcome,
                          
 OLS_results
 
-OLS_SEs <- COMMA_OLS_bootstrap_SE(OLS_results$Estimates, n_bootstrap = 3,
+OLS_SEs <- COMMA_OLS_bootstrap_SE(OLS_results$Estimates, sigma_estimate = 1,
+                                  n_bootstrap = 3,
                                   n_parallel = 1,
                                   x_matrix, z_matrix, c_matrix)
                                   

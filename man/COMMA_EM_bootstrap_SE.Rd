@@ -6,7 +6,7 @@
 \usage{
 COMMA_EM_bootstrap_SE(
   parameter_estimates,
-  sigma_estimate = NULL,
+  sigma_estimate = 1,
   n_bootstrap,
   n_parallel,
   outcome_distribution,
@@ -31,7 +31,8 @@ slope coefficient for \code{c}, and, optionally, slope coefficient for
 
 \item{sigma_estimate}{A numeric value specifying the estimated
 standard deviation. This value is only required if \code{outcome_distribution}
-is \code{"Normal"}. Otherwise, this value is set to \code{NULL}.}
+is \code{"Normal"}. Default is 1. For non-Normal outcome distributions, the
+value should be \code{NULL}.}
 
 \item{n_bootstrap}{A numeric value specifying the number of bootstrap samples
 to draw.}

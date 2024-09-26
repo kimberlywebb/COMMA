@@ -8,6 +8,8 @@
 #' (intercept, slope, coefficient for \code{x}, slope coefficient for \code{m},
 #' slope coefficient for \code{c}, and, optionally, slope coefficient for
 #' \code{xm} if using).
+#' @param sigma_estimate A numeric value specifying the estimated 
+#'   standard deviation. Default is 1. 
 #' @param n_bootstrap A numeric value specifying the number of bootstrap samples
 #' to draw. 
 #' @param n_parallel A numeric value specifying the number of parallel cores to
@@ -80,13 +82,15 @@
 #'                          
 #' OLS_results
 #' 
-#' OLS_SEs <- COMMA_OLS_bootstrap_SE(OLS_results$Estimates, n_bootstrap = 3,
+#' OLS_SEs <- COMMA_OLS_bootstrap_SE(OLS_results$Estimates, sigma_estimate = 1,
+#'                                   n_bootstrap = 3,
 #'                                   n_parallel = 1,
 #'                                   x_matrix, z_matrix, c_matrix)
 #'                                   
 #' OLS_SEs$bootstrap_SE
 #' 
 COMMA_OLS_bootstrap_SE <- function(parameter_estimates,
+                                   sigma_estimate = 1,
                                    n_bootstrap,
                                    n_parallel,
                                    # Predictor matrices
@@ -127,6 +131,7 @@ COMMA_OLS_bootstrap_SE <- function(parameter_estimates,
           .combine = rbind) %dopar% {
     
     boot_sample_i <- COMMA_boot_sample(parameter_estimates,
+                                       sigma_estimate,
                                        outcome_distribution = "Normal",
                                        interaction_indicator = FALSE,
                                        # Predictor matrices

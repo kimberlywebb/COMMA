@@ -8,6 +8,10 @@
 #' (intercept, slope, coefficient for \code{x}, slope coefficient for \code{m},
 #' slope coefficient for \code{c}, and, optionally, slope coefficient for
 #' \code{xm} if using).
+#' @param sigma_estimate A numeric value specifying the estimated 
+#'   standard deviation. This value is only required if \code{outcome_distribution}
+#'   is \code{"Normal"}. Default is 1. For non-Normal outcome distributions, the 
+#'   value should be \code{NULL}.
 #' @param outcome_distribution A character string specifying the distribution of 
 #'   the outcome variable. Options are \code{"Bernoulli"}, \code{"Normal"}, or
 #'   \code{"Poisson"}.
@@ -36,6 +40,7 @@
 #' @importFrom stats rnorm rgamma rmultinom rpois
 #'
 COMMA_boot_sample <- function(parameter_estimates,
+                              sigma_estimate = 1,
                               outcome_distribution,
                               interaction_indicator,
                               # Predictor matrices
@@ -150,7 +155,7 @@ COMMA_boot_sample <- function(parameter_estimates,
     
     # Generate mean and Normal errors
     additive_term <- outcome_design_matrix %*% theta_param
-    additive_term_error <- rnorm(sample_size) # Errors generated with SD, sigma = 1
+    additive_term_error <- rnorm(sample_size, sigma_estimate) 
     
     # Return value of Y
     outcome <- additive_term + additive_term_error
@@ -164,7 +169,7 @@ COMMA_boot_sample <- function(parameter_estimates,
     
     # Generate mean and Normal errors
     additive_term <- outcome_design_matrix %*% theta_param
-    additive_term_error <- rnorm(sample_size) # Errors generated with SD, sigma = 1
+    additive_term_error <- rnorm(sample_size, sigma_estimate) 
     
     # Return value of Y
     outcome <- additive_term + additive_term_error

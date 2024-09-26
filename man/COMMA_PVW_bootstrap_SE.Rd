@@ -6,6 +6,7 @@
 \usage{
 COMMA_PVW_bootstrap_SE(
   parameter_estimates,
+  sigma_estimate,
   n_bootstrap,
   n_parallel,
   outcome_distribution,
@@ -27,6 +28,11 @@ mechanism, intercept and slope from the M = 2 mechanism), and 3) \eqn{\theta}
 (intercept, slope, coefficient for \code{x}, slope coefficient for \code{m},
 slope coefficient for \code{c}, and, optionally, slope coefficient for
 \code{xm} if using).}
+
+\item{sigma_estimate}{A numeric value specifying the estimated
+standard deviation. This value is only required if \code{outcome_distribution}
+is \code{"Normal"}. Default is 1. For non-Normal outcome distributions, the
+value should be \code{NULL}.}
 
 \item{n_bootstrap}{A numeric value specifying the number of bootstrap samples
 to draw.}
@@ -108,7 +114,9 @@ PVW_results <- COMMA_PVW(Mstar, outcome, outcome_distribution = "Bernoulli",
 
 PVW_results
 
-PVW_SEs <- COMMA_PVW_bootstrap_SE(PVW_results$Estimates, n_bootstrap = 3,
+PVW_SEs <- COMMA_PVW_bootstrap_SE(PVW_results$Estimates, 
+                                  sigma_estimate = NULL,
+                                  n_bootstrap = 3,
                                   n_parallel = 1,
                                   outcome_distribution = "Bernoulli",
                                   interaction_indicator = FALSE,

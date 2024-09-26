@@ -8,6 +8,10 @@
 #' (intercept, slope, coefficient for \code{x}, slope coefficient for \code{m},
 #' slope coefficient for \code{c}, and, optionally, slope coefficient for
 #' \code{xm} if using).
+#' @param sigma_estimate A numeric value specifying the estimated 
+#'   standard deviation. This value is only required if \code{outcome_distribution}
+#'   is \code{"Normal"}. Default is 1. For non-Normal outcome distributions, the 
+#'   value should be \code{NULL}.
 #' @param n_bootstrap A numeric value specifying the number of bootstrap samples
 #' to draw. 
 #' @param n_parallel A numeric value specifying the number of parallel cores to
@@ -86,7 +90,9 @@
 #'
 #' PVW_results
 #' 
-#' PVW_SEs <- COMMA_PVW_bootstrap_SE(PVW_results$Estimates, n_bootstrap = 3,
+#' PVW_SEs <- COMMA_PVW_bootstrap_SE(PVW_results$Estimates, 
+#'                                   sigma_estimate = NULL,
+#'                                   n_bootstrap = 3,
 #'                                   n_parallel = 1,
 #'                                   outcome_distribution = "Bernoulli",
 #'                                   interaction_indicator = FALSE,
@@ -95,6 +101,7 @@
 #' PVW_SEs$bootstrap_SE
 #' 
 COMMA_PVW_bootstrap_SE <- function(parameter_estimates,
+                                   sigma_estimate,
                                    n_bootstrap,
                                    n_parallel,
                                    outcome_distribution,
@@ -137,6 +144,7 @@ COMMA_PVW_bootstrap_SE <- function(parameter_estimates,
           .combine = rbind) %dopar% {
     
     boot_sample_i <- COMMA_boot_sample(parameter_estimates,
+                                       sigma_estimate,
                                        outcome_distribution,
                                        interaction_indicator,
                                        # Predictor matrices

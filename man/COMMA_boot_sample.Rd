@@ -6,6 +6,7 @@
 \usage{
 COMMA_boot_sample(
   parameter_estimates,
+  sigma_estimate = 1,
   outcome_distribution,
   interaction_indicator,
   x_matrix,
@@ -22,6 +23,11 @@ mechanism, intercept and slope from the M = 2 mechanism), and 3) \eqn{\theta}
 (intercept, slope, coefficient for \code{x}, slope coefficient for \code{m},
 slope coefficient for \code{c}, and, optionally, slope coefficient for
 \code{xm} if using).}
+
+\item{sigma_estimate}{A numeric value specifying the estimated
+standard deviation. This value is only required if \code{outcome_distribution}
+is \code{"Normal"}. Default is 1. For non-Normal outcome distributions, the
+value should be \code{NULL}.}
 
 \item{outcome_distribution}{A character string specifying the distribution of
 the outcome variable. Options are \code{"Bernoulli"}, \code{"Normal"}, or
