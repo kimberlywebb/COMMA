@@ -51,6 +51,7 @@ Collate:
     'COMMA_boot_sample.R'
     'COMMA_EM_bootstrap_SE.R'
     'COMMA_OLS.R'
+    'COMMA_OLS_bootstrap_SE.R'
     'COMMA_PVW.R'
     'COMMA_PVW_bootstrap_SE.R'
     'EM_function_poissonY.R'

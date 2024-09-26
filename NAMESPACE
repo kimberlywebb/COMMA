@@ -3,6 +3,7 @@
 export(COMMA_EM)
 export(COMMA_EM_bootstrap_SE)
 export(COMMA_OLS)
+export(COMMA_OLS_bootstrap_SE)
 export(COMMA_PVW)
 export(COMMA_PVW_bootstrap_SE)
 export(COMMA_data)

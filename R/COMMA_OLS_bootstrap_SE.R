@@ -1,4 +1,4 @@
-#' Estimate Bootstrap Standard Errors using PVW
+#' Estimate Bootstrap Standard Errors using OLS
 #'
 #' @param parameter_estimates A column matrix of \eqn{\beta}, \eqn{\gamma},
 #' and \eqn{\theta} parameter values obtained from a COMMA analysis function.
@@ -12,11 +12,6 @@
 #' to draw. 
 #' @param n_parallel A numeric value specifying the number of parallel cores to
 #' run the computation on.
-##' @param outcome_distribution A character string specifying the distribution of 
-#'   the outcome variable. Options are \code{"Bernoulli"}, \code{"Normal"}, or
-#'   \code{"Poisson"}.
-#' @param interaction_indicator A logical value indicating if an interaction between
-#'   \code{x} and \code{m} should be used to generate the outcome variable, \code{y}.
 #' @param x_matrix A numeric matrix of predictors in the true mediator and outcome mechanisms.
 #'   \code{x_matrix} should not contain an intercept and no values should be \code{NA}.
 #' @param z_matrix A numeric matrix of covariates in the observation mechanism.
@@ -31,14 +26,14 @@
 #'   Options are \code{"em"}, \code{"squarem"}, or \code{"pem"}. The default and
 #'   recommended option is \code{"squarem"}.
 #'
-#' @return \code{COMMA_PVW_bootstrap_SE} returns a list with two elements: 1)
+#' @return \code{COMMA_OLS_bootstrap_SE} returns a list with two elements: 1)
 #' \code{bootstrap_df} and 2) \code{bootstrap_SE}. \code{bootstrap_df} is a data
-#' frame containing \code{COMMA_PVW} output for each bootstrap sample. \code{bootstrap_SE}
+#' frame containing \code{COMMA_OLS} output for each bootstrap sample. \code{bootstrap_SE}
 #' is a data frame containing bootstrap standard error estimates for each parameter. 
 #' 
 #' @export
 #' 
-#' @include COMMA_PVW.R
+#' @include COMMA_OLS.R
 #' @include COMMA_boot_sample.R
 #' 
 #' @importFrom parallel makeCluster stopCluster
@@ -62,11 +57,11 @@
 #' # True parameter values (gamma terms set the misclassification rate)
 #' true_beta <- matrix(c(1, -2, .5), ncol = 1)
 #' true_gamma <- matrix(c(1, 1, -.5, -1.5), nrow = 2, byrow = FALSE)
-#' true_theta <- matrix(c(1, 1.5, -2, -.2), ncol = 1)
+#' true_theta <- matrix(c(1, 1.5, -2, 2), ncol = 1)
 #' 
 #' example_data <- COMMA_data(sample_size, x_mu, x_sigma, z_shape, c_shape,
 #'                            interaction_indicator = FALSE,
-#'                            outcome_distribution = "Bernoulli",
+#'                            outcome_distribution = "Normal",
 #'                            true_beta, true_gamma, true_theta)
 #'                            
 #' beta_start <- matrix(rep(1, 3), ncol = 1)
@@ -79,26 +74,21 @@
 #' z_matrix = example_data[["z"]]
 #' c_matrix = example_data[["c"]]
 #'                            
-#' PVW_results <- COMMA_PVW(Mstar, outcome, outcome_distribution = "Bernoulli",
-#'                          interaction_indicator = FALSE,
+#' OLS_results <- COMMA_OLS(Mstar, outcome,
 #'                          x_matrix, z_matrix, c_matrix,
 #'                          beta_start, gamma_start, theta_start)
-#'
-#' PVW_results
+#'                          
+#' OLS_results
 #' 
-#' PVW_SEs <- COMMA_PVW_bootstrap_SE(PVW_results$Estimates, n_bootstrap = 3,
+#' OLS_SEs <- COMMA_OLS_bootstrap_SE(OLS_results$Estimates, n_bootstrap = 3,
 #'                                   n_parallel = 1,
-#'                                   outcome_distribution = "Bernoulli",
-#'                                   interaction_indicator = FALSE,
 #'                                   x_matrix, z_matrix, c_matrix)
 #'                                   
-#' PVW_SEs$bootstrap_SE
+#' OLS_SEs$bootstrap_SE
 #' 
-COMMA_PVW_bootstrap_SE <- function(parameter_estimates,
+COMMA_OLS_bootstrap_SE <- function(parameter_estimates,
                                    n_bootstrap,
                                    n_parallel,
-                                   outcome_distribution,
-                                   interaction_indicator,
                                    # Predictor matrices
                                    x_matrix, z_matrix, c_matrix,
                                    tolerance = 1e-7,
@@ -144,8 +134,6 @@ COMMA_PVW_bootstrap_SE <- function(parameter_estimates,
     
     bootstrap_param <- COMMA_PVW(boot_sample_i[["obs_mediator"]],
                                  boot_sample_i[["outcome"]],
-                                 outcome_distribution,
-                                 interaction_indicator,
                                  x_matrix, z_matrix, c_matrix,
                                  beta_start, gamma_start, theta_start,
                                  tolerance, max_em_iterations, em_method)
