@@ -65,6 +65,7 @@ is a data frame containing bootstrap standard error estimates for each parameter
 Estimate Bootstrap Standard Errors using OLS
 }
 \examples{
+\donttest{
 set.seed(20240709)
 sample_size <- 2000
 
@@ -108,5 +109,5 @@ OLS_SEs <- COMMA_OLS_bootstrap_SE(OLS_results$Estimates, sigma_estimate = 1,
                                   x_matrix, z_matrix, c_matrix)
                                   
 OLS_SEs$bootstrap_SE
-
+}
 }

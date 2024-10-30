@@ -51,7 +51,7 @@
 #' @importFrom dplyr %>% group_by ungroup summarise
 #' @importFrom stats sd
 #'
-#' @examples
+#' @examples \donttest{
 #' set.seed(20240709)
 #' sample_size <- 2000
 #' 
@@ -97,7 +97,7 @@
 #'                                 x_matrix, z_matrix, c_matrix)
 #'                                   
 #' EM_SEs$bootstrap_SE
-#' 
+#' }
 COMMA_EM_bootstrap_SE <- function(parameter_estimates,
                                   sigma_estimate = 1,
                                   n_bootstrap,

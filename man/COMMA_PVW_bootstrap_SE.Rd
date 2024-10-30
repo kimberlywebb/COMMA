@@ -76,6 +76,7 @@ is a data frame containing bootstrap standard error estimates for each parameter
 Estimate Bootstrap Standard Errors using PVW
 }
 \examples{
+\donttest{
 set.seed(20240709)
 sample_size <- 2000
 
@@ -123,5 +124,5 @@ PVW_SEs <- COMMA_PVW_bootstrap_SE(PVW_results$Estimates,
                                   x_matrix, z_matrix, c_matrix)
                                   
 PVW_SEs$bootstrap_SE
-
+}
 }
