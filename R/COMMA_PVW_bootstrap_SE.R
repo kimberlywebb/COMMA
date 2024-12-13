@@ -146,6 +146,14 @@ COMMA_PVW_bootstrap_SE <- function(parameter_estimates,
   
   bootstrap_df <- foreach(i = 1:n_bootstrap,
           .combine = rbind) %dopar% {
+            
+    if(is.null(random_seed)){
+      random_seed_i <- NULL
+    } else {
+      random_seed_i <- random_seed + i
+    }
+    
+    set.seed(random_seed_i)
     
     boot_sample_i <- COMMA_boot_sample(parameter_estimates,
                                        sigma_estimate,
