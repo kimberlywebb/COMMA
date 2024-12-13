@@ -123,8 +123,8 @@ EM_SEs <- COMMA_EM_bootstrap_SE(EM_results$Estimates, sigma_estimate = NULL,
                                 n_parallel = 1,
                                 outcome_distribution = "Bernoulli",
                                 interaction_indicator = FALSE,
-                                x_matrix, z_matrix, c_matrix)
-                                  
+                                x_matrix, z_matrix, c_matrix,
+                                random_seed = 1)                
 EM_SEs$bootstrap_SE
 }
 }
