@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">COMMA</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,8 @@
 <span>  <span class="va">c_matrix</span>,</span>
 <span>  tolerance <span class="op">=</span> <span class="fl">1e-07</span>,</span>
 <span>  max_em_iterations <span class="op">=</span> <span class="fl">1500</span>,</span>
-<span>  em_method <span class="op">=</span> <span class="st">"squarem"</span></span>
+<span>  em_method <span class="op">=</span> <span class="st">"squarem"</span>,</span>
+<span>  random_seed <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -117,6 +118,11 @@ the difference of subsequent log-likelihood estimates. The default is <code>1e-7
 Options are <code>"em"</code>, <code>"squarem"</code>, or <code>"pem"</code>. The default and
 recommended option is <code>"squarem"</code>.</p></dd>
 
+
+<dt id="arg-random-seed">random_seed<a class="anchor" aria-label="anchor" href="#arg-random-seed"></a></dt>
+<dd><p>A numeric value specifying the random seed to set for bootstrap
+sampling. Default is <code>NULL</code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -128,7 +134,8 @@ is a data frame containing bootstrap standard error estimates for each parameter
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">20240709</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">20240709</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">sample_size</span> <span class="op">&lt;-</span> <span class="fl">2000</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">n_cat</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="co"># Number of categories in the binary mediator</span></span></span>
@@ -180,24 +187,25 @@ is a data frame containing bootstrap standard error estimates for each parameter
 <span class="r-in"><span><span class="va">OLS_SEs</span> <span class="op">&lt;-</span> <span class="fu">COMMA_OLS_bootstrap_SE</span><span class="op">(</span><span class="va">OLS_results</span><span class="op">$</span><span class="va">Estimates</span>, sigma_estimate <span class="op">=</span> <span class="fl">1</span>,</span></span>
 <span class="r-in"><span>                                  n_bootstrap <span class="op">=</span> <span class="fl">3</span>,</span></span>
 <span class="r-in"><span>                                  n_parallel <span class="op">=</span> <span class="fl">1</span>,</span></span>
-<span class="r-in"><span>                                  <span class="va">x_matrix</span>, <span class="va">z_matrix</span>, <span class="va">c_matrix</span><span class="op">)</span></span></span>
+<span class="r-in"><span>                                  <span class="va">x_matrix</span>, <span class="va">z_matrix</span>, <span class="va">c_matrix</span>,</span></span>
+<span class="r-in"><span>                                  random_seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span>                                  </span></span>
 <span class="r-in"><span><span class="va">OLS_SEs</span><span class="op">$</span><span class="va">bootstrap_SE</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 11 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Parameter   Mean     SE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> beta1      0.836 0.072<span style="text-decoration: underline;">6</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> beta2     -<span style="color: #BB0000;">1.54</span>  0.038<span style="text-decoration: underline;">1</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> beta3      0.310 0.108 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> gamma11    1.25  0.189 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> gamma12   -<span style="color: #BB0000;">0.293</span> 0.577 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> gamma21    1.52  0.424 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> gamma22   -<span style="color: #BB0000;">2.05</span>  0.571 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> theta0     2.01  0.118 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> theta_c1   2.03  0.025<span style="text-decoration: underline;">5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> theta_m    1.36  0.154 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> theta_x   -<span style="color: #BB0000;">1.97</span>  0.079<span style="text-decoration: underline;">0</span></span>
-<span class="r-in"><span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> beta1      0.982 0.310 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> beta2     -<span style="color: #BB0000;">1.52</span>  0.335 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> beta3      0.312 0.029<span style="text-decoration: underline;">7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> gamma11    1.13  0.210 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> gamma12   -<span style="color: #BB0000;">0.384</span> 0.042<span style="text-decoration: underline;">7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> gamma21    1.58  0.711 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> gamma22   -<span style="color: #BB0000;">2.49</span>  0.463 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> theta0     1.89  0.317 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> theta_c1   2.04  0.014<span style="text-decoration: underline;">1</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> theta_m    1.50  0.388 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> theta_x   -<span style="color: #BB0000;">1.93</span>  0.133 </span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
